@@ -34,6 +34,9 @@ const Nav = styled.nav`
 const Img = styled.img`
  height: 80%;
  width: auto;
+ @media screen and (max-width: 500px) {
+  height: 60%;
+ }
 `;
 const HamburgerMenu = styled.div`
  height: 3rem;

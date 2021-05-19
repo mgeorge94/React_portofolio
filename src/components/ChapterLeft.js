@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { HeaderContainer } from './Header';
+import fluteChapter from '../images/chapter-backgrounds/flute-chapter.jpg';
 const ChapterLeft = () => {
  return (
   <ChapterContainer>
@@ -11,10 +12,11 @@ const ChapterLeft = () => {
      day I was on my break and I was just hanging out when I heard a bet I couldn't refuse..."
     </p>
    </TextContainer>
+   <ImageContainer />
   </ChapterContainer>
  );
 };
-const ChapterContainer = styled.div`
+export const ChapterContainer = styled.div`
  clip-path: polygon(0 0, 100% calc(6vw), 100% calc(100% - 6vw), 0% 100%);
  background-attachment: fixed;
  min-height: 90vh;
@@ -22,15 +24,15 @@ const ChapterContainer = styled.div`
  transition: transform 0.4s ease-in-out;
  top: -6vw;
  position: relative;
- background-color: black;
- background-image: url(../images/chapter-backgrounds/header-img.jpg);
- background-size: 45%;
 
- background-position: right center;
- background-repeat: no-repeat;
+ display: flex;
+ justify-content: space-between;
+ @media screen and (max-width: 1100px) {
+  flex-direction: column;
+ }
 `;
-const TextContainer = styled.aside`
- margin: 8rem;
+export const TextContainer = styled.aside`
+ margin: 8rem 0 8rem 8rem;
  h2 {
   font-family: 'Six Caps';
   color: var(--accent-color);
@@ -39,7 +41,6 @@ const TextContainer = styled.aside`
   font-weight: 200;
 
   animation: showTitle 2s ease-in-out forwards;
-  display: flex;
 
   animation: showTitle 2s ease-in-out forwards;
  }
@@ -48,6 +49,46 @@ const TextContainer = styled.aside`
   margin-top: 10vh;
   font-size: 1.4rem;
   font-style: oblique;
+ }
+ @media screen and (max-width: 1100px) {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  margin: 0;
+  padding: 5rem;
+  margin-top: 10vh;
+  h2 {
+   align-self: flex-start;
+  }
+  p {
+   flex-basis: auto;
+   width: 100%;
+  }
+ }
+ @media screen and (max-width: 500px) {
+  padding: 2rem;
+ }
+`;
+export const ImageContainer = styled.div`
+ background-image: url(${fluteChapter});
+ background-size: 40%;
+ background-attachment: fixed;
+ background-position: right center;
+ background-repeat: no-repeat;
+
+ width: 40%;
+ box-shadow: inset 0px 0px 28px 35px rgba(0, 0, 0, 0.75);
+
+ right: 0;
+ @media screen and (max-width: 1100px) {
+  width: 100%;
+  height: 20rem;
+  bottom: 0;
+  background-size: 100%;
+  /* background: lime; */
  }
 `;
 export default ChapterLeft;

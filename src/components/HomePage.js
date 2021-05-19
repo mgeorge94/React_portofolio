@@ -4,6 +4,7 @@ import NavBar from './NavBar';
 import Data from './ChaptersData';
 import ChapterLeft from './ChapterLeft';
 import Header from './Header';
+import ChapterRight from './ChapterRight';
 const HomePage = ({ isOpen, setIsOpen }) => {
  return (
   <HomePageContainer
@@ -16,6 +17,7 @@ const HomePage = ({ isOpen, setIsOpen }) => {
 
    <Header />
    <ChapterLeft />
+   <ChapterRight />
    <Header />
   </HomePageContainer>
  );

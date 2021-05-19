@@ -1,18 +1,14 @@
 import React from 'react';
 import styled from 'styled-components';
-import { HeaderContainer } from './Header';
-import fluteChapter from '../images/chapter-backgrounds/flute-chapter.jpg';
-const ChapterLeft = () => {
+
+const ChapterLeft = ({ name, paragraph, image, bg }) => {
  return (
-  <ChapterContainer>
+  <ChapterContainer bg={bg}>
    <TextContainer>
-    <h2>The past</h2>
-    <p>
-     "I used to be a flute player. Even though I wasn't makin' much and I worked from dawn to dusk, I was glad to be working. One
-     day I was on my break and I was just hanging out when I heard a bet I couldn't refuse..."
-    </p>
+    <h2>{name}</h2>
+    {paragraph === undefined ? '' : <p>{paragraph}</p>}
    </TextContainer>
-   <ImageContainer />
+   {image === undefined ? '' : <ImageContainer image={image} />}
   </ChapterContainer>
  );
 };
@@ -22,9 +18,8 @@ export const ChapterContainer = styled.div`
  min-height: 90vh;
  /* transform: translateX(-400%); */
  transition: transform 0.4s ease-in-out;
- top: -6vw;
- position: relative;
 
+ background: ${(props) => props.bg};
  display: flex;
  justify-content: space-between;
  @media screen and (max-width: 1100px) {
@@ -72,15 +67,17 @@ export const TextContainer = styled.aside`
   padding: 2rem;
  }
 `;
+
 export const ImageContainer = styled.div`
- background-image: url(${fluteChapter});
+ background-image: url(${(props) => props.image});
+
  background-size: 40%;
  background-attachment: fixed;
  background-position: right center;
  background-repeat: no-repeat;
 
  width: 40%;
- box-shadow: inset 0px 0px 28px 35px rgba(0, 0, 0, 0.75);
+ /* box-shadow: inset 0px 0px 28px 35px ${(props) => props.bg}; */
 
  right: 0;
  @media screen and (max-width: 1100px) {

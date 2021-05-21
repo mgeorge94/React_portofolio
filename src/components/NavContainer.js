@@ -5,22 +5,22 @@ import NavLinks from './NavLinks';
 import styled from 'styled-components';
 
 const NavContainer = ({ isOpen, setIsOpen }) => {
- console.log(isOpen);
  return (
   <StyledNavContainer isOpen={isOpen}>
    {/* <NavBar /> */}
+   <NavLinks isOpen={isOpen} setIsOpen={setIsOpen} />
 
    <HomePage isOpen={isOpen} setIsOpen={setIsOpen} />
-   <NavLinks isOpen={isOpen} setIsOpen={setIsOpen} />
   </StyledNavContainer>
  );
 };
 const StyledNavContainer = styled.div`
- perspective: 1000px;
+ perspective: 900px;
  height: 100vh;
- overflow: ${({ isOpen }) => (isOpen ? 'hidden' : 'scroll')};
 
- overflow-x: hidden;
+ display: flex;
+ flex-direction: column;
+ overflow: hidden;
 `;
 
 export default NavContainer;

@@ -1,12 +1,49 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 
-const ChapterLeft = ({ name, paragraph, image, bg }) => {
+import Typewriter from 'typewriter-effect';
+// intersection observer
+const ChapterLeft = ({ name, paragraph, image, bg, top }) => {
+ let [typing, setTyping] = useState(false);
+
+ const setTypingTRUE = () => {
+  setTyping(true);
+ };
+ const setTypingFALSE = () => {
+  setTyping(!typing);
+ };
+
  return (
-  <ChapterContainer bg={bg}>
+  <ChapterContainer onMouseEnter={setTypingTRUE} className='chapter chapter-left' top={top} bg={bg}>
    <TextContainer>
     <h2>{name}</h2>
-    {paragraph === undefined ? '' : <p>{paragraph}</p>}
+
+    {typing && paragraph !== undefined ? (
+     <Typewriter
+      onInit={(typewriter) => {
+       typewriter
+        .changeDelay(50)
+        .typeString(`${paragraph}`)
+
+        // .deleteChars()
+
+        .start();
+      }}
+     />
+    ) : null}
+
+    {/* <Typewriter
+     onInit={(typewriter) => {
+      typewriter
+       .typeString(`${paragraph}`)
+       
+
+       .pauseFor(2500)
+       .deleteAll()
+
+       .start();
+     }}
+    /> */}
    </TextContainer>
    {image === undefined ? '' : <ImageContainer image={image} />}
   </ChapterContainer>
@@ -15,21 +52,34 @@ const ChapterLeft = ({ name, paragraph, image, bg }) => {
 export const ChapterContainer = styled.div`
  clip-path: polygon(0 0, 100% calc(6vw), 100% calc(100% - 6vw), 0% 100%);
  background-attachment: fixed;
- min-height: 90vh;
- /* transform: translateX(-400%); */
+ min-height: 100vh;
  transition: transform 0.4s ease-in-out;
+ position: relative;
+ top: ${(props) => props.top};
+ position: relative;
 
  background: ${(props) => props.bg};
  display: flex;
  justify-content: space-between;
+
  @media screen and (max-width: 1100px) {
   flex-direction: column;
+ }
+
+ &.chapter-left {
+  transform: translateX(-400%);
+ }
+ &.show {
+  transform: translateX(0%);
  }
 `;
 export const TextContainer = styled.aside`
  margin: 8rem 0 8rem 8rem;
+ /* transform: ${({ isOpen }) => (isOpen ? `translateZ(100px) rotate(-15deg)` : `translateZ(0px)`)}; */
+
  h2 {
   font-family: 'Six Caps';
+
   color: var(--accent-color);
   transition: color 1s ease-in-out;
   font-size: 8rem;
@@ -39,7 +89,7 @@ export const TextContainer = styled.aside`
 
   animation: showTitle 2s ease-in-out forwards;
  }
- p {
+ div {
   width: 30rem;
   margin-top: 10vh;
   font-size: 1.4rem;
@@ -58,7 +108,7 @@ export const TextContainer = styled.aside`
   h2 {
    align-self: flex-start;
   }
-  p {
+  div {
    flex-basis: auto;
    width: 100%;
   }
@@ -88,4 +138,5 @@ export const ImageContainer = styled.div`
   /* background: lime; */
  }
 `;
+
 export default ChapterLeft;

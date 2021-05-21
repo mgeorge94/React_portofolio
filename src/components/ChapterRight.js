@@ -1,28 +1,53 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import { ChapterContainer, TextContainer, ImageContainer } from './ChapterLeft';
-import betChapter from '../images/chapter-backgrounds/bet-chapter.jpg';
-const ChapterRight = ({ name, paragraph, image, bg }) => {
+import Typewriter from 'typewriter-effect';
+const ChapterRight = ({ name, paragraph, image, bg, top }) => {
+ let [typing, setTyping] = useState(false);
+
+ const setTypingTRUE = () => {
+  setTyping(true);
+ };
+ const setTypingFALSE = () => {
+  setTyping(!typing);
+ };
  return (
-  <ChapterContainerR bg={bg}>
+  <ChapterContainerR onMouseEnter={setTypingTRUE} className='chapter chapter-right' top={top} bg={bg}>
    <TextContainerR>
     <h2>{name}</h2>
-    {paragraph === undefined ? '' : <p>{paragraph}</p>}
+    {typing && paragraph !== undefined ? (
+     <Typewriter
+      onInit={(typewriter) => {
+       typewriter
+        .changeDelay(50)
+        .typeString(`${paragraph}`)
+
+        // .deleteChars()
+
+        .start();
+      }}
+     />
+    ) : null}
    </TextContainerR>
    {image === undefined ? '' : <ImageContainerR image={image}></ImageContainerR>}
   </ChapterContainerR>
  );
 };
 const ChapterContainerR = styled(ChapterContainer)`
- background: ${(props) => props.bg};
- transform: scaleX(-1);
+ &.chapter-right {
+  transform: translateX(400%);
+  background: ${(props) => props.bg};
+ }
+ &.show {
+  transform: translateX(0%) scaleX(-1);
+ }
 `;
 const TextContainerR = styled(TextContainer)`
  transform: scaleX(-1);
  display: flex;
  flex-direction: column;
  align-items: flex-end;
- text-align: right;
+ /* text-align: right; */
  @media screen and (max-width: 1100px) {
   text-align: left;
  }

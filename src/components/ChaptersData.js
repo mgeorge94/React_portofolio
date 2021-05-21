@@ -10,6 +10,7 @@ export const ChaptersData = [
            One day I was on my break and I was just hanging out when I heard a bet I couldn't refuse..."`,
   image: pastImg,
   bg: '#000000',
+  top: '-7vw',
  },
  {
   name: 'The Bet',
@@ -18,26 +19,31 @@ export const ChaptersData = [
        P.S. He lost! "`,
   image: betImg,
   bg: '#202332',
+  top: '-14rem',
  },
  {
   name: 'The Present',
   paragraph: ` "Anyway,  I begun my journey in conquering Web Development, each and every day taking small steps to become the greatest front end dev (of my family)"`,
   image: presentImg,
   bg: '#242424',
+  top: '-21rem',
  },
  {
   name: 'The Curriculum',
   paragraph: ` "The JavaScript guru's from the internet called to me so I enrolled in a few courses from CodeCademy, Pluralsight and WantSome. There was also some handsome sensei who helped me along the way but he wishes to remain annonimus"`,
   image: curriculumImg,
   bg: '#2c2a2d',
+  top: '-28rem',
  },
  {
   name: 'The Experience',
   bg: '#2c2c2c',
+  top: '-35rem',
  },
  {
   name: 'The End',
   image: endImg,
   bg: '#393939',
+  top: '-42rem',
  },
 ];

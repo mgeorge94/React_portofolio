@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 
 import Typewriter from 'typewriter-effect';
+import ProjectsCard from './ProjectsCard';
 // intersection observer
 const ChapterLeft = ({ name, paragraph, image, bg, top }) => {
  let [typing, setTyping] = useState(false);
@@ -15,36 +16,46 @@ const ChapterLeft = ({ name, paragraph, image, bg, top }) => {
 
  return (
   <ChapterContainer onMouseEnter={setTypingTRUE} className='chapter chapter-left' top={top} bg={bg}>
-   <TextContainer>
-    <h2>{name}</h2>
+   {name !== 'The Experience' ? (
+    <TextContainer>
+     <h2>{name}</h2>
 
-    {typing && paragraph !== undefined ? (
-     <Typewriter
-      onInit={(typewriter) => {
-       typewriter
-        .changeDelay(50)
-        .typeString(`${paragraph}`)
+     {typing && paragraph !== undefined ? (
+      <Typewriter
+       onInit={(typewriter) => {
+        typewriter
+         .changeDelay(50)
+         .typeString(`${paragraph}`)
 
-        // .deleteChars()
+         // .deleteChars()
 
-        .start();
-      }}
-     />
-    ) : null}
+         .start();
+       }}
+      />
+     ) : null}
 
-    {/* <Typewriter
-     onInit={(typewriter) => {
-      typewriter
-       .typeString(`${paragraph}`)
-       
+     {/* <Typewriter
+    onInit={(typewriter) => {
+     typewriter
+      .typeString(`${paragraph}`)
+      
 
-       .pauseFor(2500)
-       .deleteAll()
+      .pauseFor(2500)
+      .deleteAll()
 
-       .start();
-     }}
-    /> */}
-   </TextContainer>
+      .start();
+    }}
+   /> */}
+    </TextContainer>
+   ) : (
+    <>
+     {' '}
+     <TextContainer>
+      <h2>{name}</h2>
+     </TextContainer>
+     <ProjectsCard name={name} />
+    </>
+   )}
    {image === undefined ? '' : <ImageContainer image={image} />}
   </ChapterContainer>
  );
@@ -79,7 +90,7 @@ export const TextContainer = styled.aside`
 
  h2 {
   font-family: 'Six Caps';
-
+  white-space: nowrap;
   color: var(--accent-color);
   transition: color 1s ease-in-out;
   font-size: 8rem;

@@ -5,6 +5,7 @@ import { ChaptersData } from './ChaptersData';
 import ChapterLeft from './ChapterLeft';
 import Header from './Header';
 import ChapterRight from './ChapterRight';
+import ProjectsCard from './ProjectsCard';
 const HomePage = ({ isOpen, setIsOpen }) => {
  // scroll animation
 
@@ -65,6 +66,7 @@ const HomePage = ({ isOpen, setIsOpen }) => {
     top={ChaptersData[3].top}
    />
    <ChapterLeft bg={ChaptersData[4].bg} top={ChaptersData[4].top} name={ChaptersData[4].name} />
+
    <ChapterRight bg={ChaptersData[5].bg} top={ChaptersData[5].top} name={ChaptersData[5].name} image={ChaptersData[5].image} />
   </HomePageContainer>
  );

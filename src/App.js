@@ -2,7 +2,6 @@ import './App.css';
 import NavContainer from './components/NavContainer';
 import styled from 'styled-components';
 import { useState } from 'react';
-
 function App() {
  //  change is open class for opening navigation menu
  let [isOpen, setIsOpen] = useState(false);

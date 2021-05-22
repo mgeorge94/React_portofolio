@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import { FaAngleLeft, FaAngleRight } from 'react-icons/fa';
 import { ProjectsData } from './ProjectsData';
+import { Link } from 'react-router-dom';
 const ProjectsCard = () => {
  //control what project displays
  let [index, setIndex] = useState(0);
@@ -36,7 +37,7 @@ const ProjectsCard = () => {
  const removeHoverEffect = () => {
   const card = document.querySelector('.project-card');
   const cardHeaderImage = document.querySelector('.card-header img');
-  const projectTitle = document.querySelector('.card-info>h4');
+  const projectTitle = document.querySelector('.card-info>h5');
   const seeMoreBtn = document.querySelector('.see-more-btn');
   const projectDescription = document.querySelector('.card-info');
   const firstPhoto = document.getElementById('image-0');
@@ -56,7 +57,7 @@ const ProjectsCard = () => {
  };
  const addHoverEffect = () => {
   const card = document.querySelector('.project-card');
-  const projectTitle = document.querySelector('.card-info>h4');
+  const projectTitle = document.querySelector('.card-info>h5');
   const seeMoreBtn = document.querySelector('.see-more-btn');
   const projectDescription = document.querySelector('.card-info');
   const firstPhoto = document.getElementById('image-0');
@@ -111,10 +112,12 @@ const ProjectsCard = () => {
      })}
     </Header>
     <Info className='card-info'>
-     <h4>{ProjectsData[index].name}</h4>
+     <h5>{ProjectsData[index].name}</h5>
      <p>{ProjectsData[index].paragraphCard}</p>
     </Info>
-    <SeeMoreBtn className='see-more-btn'> See more</SeeMoreBtn>
+    <Link to={ProjectsData[index].url}>
+     <SeeMoreBtn className='see-more-btn'> See more</SeeMoreBtn>
+    </Link>
     <FaAngleRight className='right-arrow' onClick={nextProject} />
     <FaAngleLeft className='left-arrow' onClick={prevProject} />
    </ProjectCard>
@@ -229,7 +232,7 @@ const Photo = styled.img`
 `;
 const Info = styled.section`
  position: relative;
- h4 {
+ h5 {
   font-size: 2rem;
   font-style: italic;
   font-weight: bolder;

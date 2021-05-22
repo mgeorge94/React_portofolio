@@ -10,7 +10,7 @@ const Form = () => {
     data-email='george.murgoci.portofolio@gmail.com'
     action='https://script.google.com/macros/s/AKfycbxJI-J8lq-jQN-pEimXHYSnYaL21zHwKSNYWINCZEpwJkbu6cXS/exec'
    >
-    <h4>Wanna work together?</h4>
+    <h5>Wanna work together?</h5>
     <label for='fname'>Tell me your name</label>
     <input className='form' required type='text' id='name' name='name' placeholder='Ex: Bill Smith' />
     <label for='fname'>Gimme your email</label>
@@ -51,7 +51,7 @@ const FormContainer = styled.aside`
   width: 90vw;
   margin: 5rem 3rem 10rem 3rem;
  }
- h4 {
+ h5 {
   font-size: 2rem;
   color: var(--accent-color);
   transition: color 1s ease-in-out;

@@ -94,13 +94,6 @@ const Skills = () => {
      })}
     </SkillsInnerContainer>
    </SkillsContainer>
-   <SkillsContainerText>
-    <SkillsInnerContainer>
-     {skillsText.map((text) => {
-      return <Text>{text}</Text>;
-     })}
-    </SkillsInnerContainer>
-   </SkillsContainerText>
   </>
  );
 };
@@ -119,9 +112,16 @@ const SkillsContainer = styled.div`
  transform: rotate(60deg);
  z-index: 4;
  overflow: hidden;
+
+ transform: rotate(-20deg);
+ background: rgba(107, 107, 107, 0.861);
+
+ z-index: 1;
+ top: 80%;
  @media screen and (max-width: 1100px) {
-  transform: rotate(10deg);
+  transform: rotate(-20deg);
   top: 80%;
+  z-index: 3;
  }
 `;
 const SkillsInnerContainer = styled.div`
@@ -146,25 +146,6 @@ const Logo = styled.img`
  height: 100%;
  padding: 0.5rem 0 0.5rem 1.5rem;
  transform: scaleX(-1);
-`;
-const Text = styled.p`
- font-size: 2rem;
- text-transform: upperCase;
- padding: 1rem;
- transform: scaleX(-1);
- white-space: nowrap;
-`;
-const SkillsContainerText = styled(SkillsContainer)`
- transform: rotate(-20deg);
- background: rgba(107, 107, 107, 0.861);
-
- z-index: 1;
- top: 80%;
- @media screen and (max-width: 1100px) {
-  transform: rotate(-20deg);
-  top: 80%;
-  z-index: 3;
- }
 `;
 
 export default Skills;

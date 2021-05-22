@@ -12,7 +12,7 @@ const NavBar = ({ isOpen, setIsOpen }) => {
      setIsOpen(!isOpen);
     }}
    >
-    <Bar className='bar' />
+    <Bar isOpen={isOpen} className='bar' />
    </HamburgerMenu>
   </Nav>
  );
@@ -32,7 +32,7 @@ const Nav = styled.nav`
  left: 0;
 `;
 const Img = styled.img`
- height: 80%;
+ height: 70%;
  width: auto;
  @media screen and (max-width: 500px) {
   height: 60%;
@@ -61,7 +61,7 @@ const Bar = styled.div`
  width: 1.9rem;
  height: 4px;
  border-radius: 10px;
- background-color: var(--accent-color);
+ background-color: ${({ isOpen }) => (isOpen ? 'transparent' : 'var(--accent-color)')};
 
  transition: all 0.4s ease-in-out;
  position: relative;
@@ -73,18 +73,18 @@ const Bar = styled.div`
   position: absolute;
   width: inherit;
   height: inherit;
-  background: inherit;
+  background: var(--accent-color);
   filter: brightness(150%);
  }
  &:before {
-  transform: translateY(-9px);
-  width: 1.2rem;
+  transform: ${({ isOpen }) => (isOpen ? ' rotate(45deg) translateY(0)' : 'translateY(-9px)')};
+  width: ${({ isOpen }) => (isOpen ? '2rem' : '1.3rem')};
   transition: all 0.2s ease-in-out;
  }
 
  &:after {
-  transform: translateY(9px);
-  width: 1.6rem;
+  transform: ${({ isOpen }) => (isOpen ? ' rotate(-45deg) translateY(0)' : 'translateY(9px)')};
+  width: ${({ isOpen }) => (isOpen ? '2rem' : '1.6rem')};
   transition: all 0.6s ease-in-out;
  }
 `;

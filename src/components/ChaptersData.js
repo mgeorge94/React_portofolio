@@ -37,7 +37,7 @@ export const ChaptersData = [
  },
  {
   name: 'The Experience',
-  bg: '#2c2c2c',
+  bg: '#222222',
   top: '-35rem',
  },
  {

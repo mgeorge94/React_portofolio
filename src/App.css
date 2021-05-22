@@ -16,3 +16,30 @@ body {
  /* color variables */
  --accent-color: red;
 }
+h2 {
+ font-family: 'Six Caps';
+ white-space: nowrap;
+ color: var(--accent-color);
+ transition: color 1s ease-in-out;
+ font-size: 8rem;
+ font-weight: 200;
+
+ animation: showTitle 2s ease-in-out forwards;
+}
+h4 {
+ font-family: 'Six Caps';
+ white-space: nowrap;
+ font-size: 5rem;
+ color: var(--accent-color);
+
+ font-weight: 200;
+ animation: showTitle 2s ease-in-out forwards;
+ transition: color 1s ease-in-out;
+}
+a {
+ color: var(--accent-color);
+ transition: color var(--transition-length) ease-in-out;
+}
+a:visited {
+ filter: brightness(130%);
+}

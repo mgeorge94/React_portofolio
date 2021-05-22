@@ -1,17 +1,11 @@
 import React from 'react';
-import { FaTimes } from 'react-icons/fa';
+
 import styled from 'styled-components';
 
 const NavLinks = ({ isOpen, setIsOpen }) => {
  return (
   <LinksContainer isOpen={isOpen}>
    <Links isOpen={isOpen}>
-    <FaTimes
-     onClick={() => {
-      setIsOpen(false);
-     }}
-     className='close-btn'
-    />
     <ul>
      <li>The Past</li>
      <li>The Bet</li>
@@ -27,10 +21,10 @@ const NavLinks = ({ isOpen, setIsOpen }) => {
 const LinksContainer = styled.aside`
  width: var(--nav-drawer-width);
  position: fixed;
- top: 0rem;
+ top: 80px;
  right: 0;
  bottom: 0;
- height: 100%;
+ height: 90%;
  perspective: 1000px;
 
  /* z-index: ${({ isOpen }) => (!isOpen ? 1 : 0)}; */
@@ -73,20 +67,6 @@ const Links = styled.div`
  a {
   color: inherit;
   text-decoration: none;
- }
- .close-btn {
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
-  font-size: 2rem;
-  transition: all 0.2s ease-in-out;
-  color: var(--accent-color);
-  :hover {
-   filter: brightness(170%);
-
-   /* transition: var(--transition-length) ease-in-out; */
-   transform: rotate(180deg) scale(1.2);
-  }
  }
 `;
 

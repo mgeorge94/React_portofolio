@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import NavBar from './NavBar';
-import { ChaptersData } from './ChaptersData';
-import ChapterLeft from './ChapterLeft';
-import Header from './Header';
-import ChapterRight from './ChapterRight';
-import ProjectsCard from './ProjectsCard';
+import NavBar from '../components/NavBar';
+import { ChaptersData } from '../components/ChaptersData';
+import ChapterLeft from '../components/ChapterLeft';
+import Header from '../components/Header';
+import ChapterRight from '../components/ChapterRight';
+import ProjectsCard from '../components/ProjectsCard';
 const HomePage = ({ isOpen, setIsOpen }) => {
  // scroll animation
 
@@ -34,7 +34,7 @@ const HomePage = ({ isOpen, setIsOpen }) => {
    }}
    isOpen={isOpen}
   >
-   <NavBar isOpen={isOpen} setIsOpen={setIsOpen} />
+   {/* <NavBar isOpen={isOpen} setIsOpen={setIsOpen} /> */}
 
    <Header />
    <ChapterLeft
@@ -80,9 +80,9 @@ const HomePageContainer = styled.section`
  @media screen and (max-width: 1000px) {
   transform: ${({ isOpen }) => (isOpen ? 'rotateY(25deg) translateX(-500px)' : 'rotateY(0deg) translateX(0)')};
  }
- overflow: auto;
+
  flex-grow: 1;
- overflow-y: scroll;
+ overflow-y: auto;
  overflow-x: hidden;
 `;
 export default HomePage;

@@ -89,23 +89,12 @@ export const TextContainer = styled.aside`
  margin: 8rem 0 8rem 8rem;
  /* transform: ${({ isOpen }) => (isOpen ? `translateZ(100px) rotate(-15deg)` : `translateZ(0px)`)}; */
 
- h2 {
-  font-family: 'Six Caps';
-  white-space: nowrap;
-  color: var(--accent-color);
-  transition: color 1s ease-in-out;
-  font-size: 8rem;
-  font-weight: 200;
-
-  animation: showTitle 2s ease-in-out forwards;
-
-  animation: showTitle 2s ease-in-out forwards;
- }
  div {
   width: 30rem;
   margin-top: 10vh;
   font-size: 1.4rem;
   font-style: oblique;
+  min-height: 11rem;
  }
  @media screen and (max-width: 1100px) {
   display: flex;

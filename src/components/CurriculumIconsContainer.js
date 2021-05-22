@@ -11,9 +11,15 @@ const CurriculumIconsContainer = () => {
     <FaBaconStyled />
     <p>Certificates</p>
    </Certificates>
+
    <Cv>
-    <FaFilePdf />
-    <p>CV</p>
+    <a
+     href=' https://www.canva.com/design/DAEdDDrSKgo/j8UDCC3X7bd_I2qE-S_BWA/view?utm_content=DAEdDDrSKgo&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink'
+     target='_blank'
+    >
+     <FaFilePdf />
+     <p>CV</p>
+    </a>
    </Cv>
   </IconsContainer>
  );

@@ -144,7 +144,7 @@ const ProjectCarousel = styled.div`
    10% {
     transform: scale(0.6) rotateX(180deg);
    }
-   80% {
+   60% {
     transform: scale(1.2);
    }
    100% {

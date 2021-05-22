@@ -3,6 +3,8 @@ import styled from 'styled-components';
 import { ChapterContainer, TextContainer, ImageContainer } from './ChapterLeft';
 import Typewriter from 'typewriter-effect';
 import Skills from './Skills';
+import CurriculumIconsContainer from './CurriculumIconsContainer';
+import Form from './Form';
 const ChapterRight = ({ name, paragraph, image, bg, top }) => {
  let [typing, setTyping] = useState(false);
 
@@ -21,17 +23,19 @@ const ChapterRight = ({ name, paragraph, image, bg, top }) => {
 
       <Typewriter
        onInit={(typewriter) => {
-        typewriter
-         .changeDelay(50)
-         .typeString(`${paragraph}`)
-
-         // .deleteChars()
-
-         .start();
+        typewriter.changeDelay(50).typeString(`${paragraph}`).start();
        }}
       />
+      <CurriculumIconsContainer />
      </TextContainerR>
      <Skills />
+    </>
+   ) : name === 'The End' ? (
+    <>
+     <TextContainerR>
+      <h2>{name}</h2>
+     </TextContainerR>
+     <Form />
     </>
    ) : (
     <TextContainerR>
@@ -39,19 +43,19 @@ const ChapterRight = ({ name, paragraph, image, bg, top }) => {
      {typing && paragraph !== undefined ? (
       <Typewriter
        onInit={(typewriter) => {
-        typewriter
-         .changeDelay(50)
-         .typeString(`${paragraph}`)
-
-         // .deleteChars()
-
-         .start();
+        typewriter.changeDelay(50).typeString(`${paragraph}`).start();
        }}
       />
      ) : null}
     </TextContainerR>
    )}
-   {image === undefined ? '' : <ImageContainerR image={image}></ImageContainerR>}
+   {image === undefined ? (
+    ''
+   ) : name === 'The End' ? (
+    <ImageContainerR className='end' image={image}></ImageContainerR>
+   ) : (
+    <ImageContainerR image={image}></ImageContainerR>
+   )}
   </ChapterContainerR>
  );
 };
@@ -85,5 +89,20 @@ const ImageContainerR = styled(ImageContainer)`
  transform: scaleX(-1);
 
  background-image: ${({ image }) => (image ? `url(({image}))` : `url("")`)};
+ &.end {
+  position: absolute;
+  left: 0rem;
+  bottom: 0rem;
+  top: 0;
+  z-index: -2;
+  height: 100%;
+  width: 80rem;
+  background-image: ${({ image }) => `url(({image}))`};
+  background-size: 60vw;
+  background-position: bottom right;
+  @media screen and (max-width: 1100px) {
+   display: none;
+  }
+ }
 `;
 export default ChapterRight;

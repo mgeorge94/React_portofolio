@@ -43,7 +43,7 @@ export const ChaptersData = [
  {
   name: 'The End',
   image: endImg,
-  bg: '#393939',
+  bg: '#373737',
   top: '-42rem',
  },
 ];

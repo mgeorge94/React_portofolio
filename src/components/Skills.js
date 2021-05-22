@@ -95,11 +95,11 @@ const Skills = () => {
     </SkillsInnerContainer>
    </SkillsContainer>
    <SkillsContainerText>
-    <SkillsInnerContainerText>
+    <SkillsInnerContainer>
      {skillsText.map((text) => {
       return <Text>{text}</Text>;
      })}
-    </SkillsInnerContainerText>
+    </SkillsInnerContainer>
    </SkillsContainerText>
   </>
  );
@@ -107,15 +107,16 @@ const Skills = () => {
 
 const SkillsContainer = styled.div`
  height: 5rem;
- width: 120%;
+ width: 150%;
  background: rgba(255, 255, 255, 0.361);
  position: absolute;
 
  left: -1rem;
- top: 2rem;
+
  right: 0;
+ bottom: 10rem;
  margin-bottom: 10rem;
- transform: rotate(20deg);
+ transform: rotate(60deg);
  z-index: 4;
  overflow: hidden;
  @media screen and (max-width: 1100px) {
@@ -154,16 +155,16 @@ const Text = styled.p`
  white-space: nowrap;
 `;
 const SkillsContainerText = styled(SkillsContainer)`
- transform: rotate(-40deg);
+ transform: rotate(-20deg);
  background: rgba(107, 107, 107, 0.861);
 
  z-index: 1;
- top: 100%;
+ top: 80%;
  @media screen and (max-width: 1100px) {
   transform: rotate(-20deg);
   top: 80%;
   z-index: 3;
  }
 `;
-const SkillsInnerContainerText = styled(SkillsInnerContainer)``;
+
 export default Skills;

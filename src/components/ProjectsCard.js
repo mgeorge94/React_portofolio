@@ -1,34 +1,48 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import { FaAngleLeft, FaAngleRight } from 'react-icons/fa';
+import { ProjectsData } from './ProjectsData';
+const ProjectsCard = () => {
+ //control what project displays
+ let [index, setIndex] = useState(0);
 
-const ProjectsCard = ({ name }) => {
- const clickOnCardImages = () => {
-  let trigger = true;
+ const nextProject = () => {
+  console.log(index);
+  if (index >= ProjectsData.length - 1) {
+   index = 0;
+  }
+  setIndex((index = index + 1));
 
-  const allCardImages = document.querySelectorAll('.card-header img');
-  allCardImages.forEach((image) => {
-   image.addEventListener('mouseover', () => {
-    if (trigger === true && !image.classList.contains('fixed')) {
-     image.style.transform = 'translateZ(1000px)';
-     trigger = false;
-    }
-    setTimeout(() => {
-     trigger = true;
-    }, 300);
-   });
-  });
+  const container = document.querySelector('.projects-carousel-container');
+  container.classList.add('rotate');
+  setTimeout(() => {
+   container.classList.remove('rotate');
+  }, 1000);
  };
+
+ const prevProject = () => {
+  const container = document.querySelector('.projects-carousel-container');
+  if (index <= 0) {
+   index = ProjectsData.length - 1;
+  }
+  setIndex((index = index - 1));
+
+  container.classList.add('rotate');
+  setTimeout(() => {
+   container.classList.remove('rotate');
+  }, 1000);
+ };
+ //handelling hover effect
  const removeHoverEffect = () => {
   const card = document.querySelector('.project-card');
   const cardHeaderImage = document.querySelector('.card-header img');
   const projectTitle = document.querySelector('.card-info>h4');
   const seeMoreBtn = document.querySelector('.see-more-btn');
   const projectDescription = document.querySelector('.card-info');
-  const firstPhoto = document.getElementById('first-image');
-  const secondPhoto = document.getElementById('second-image');
-  const thirdPhoto = document.getElementById('third-image');
-  const fourthPhoto = document.getElementById('fourth-image');
+  const firstPhoto = document.getElementById('image-0');
+  const secondPhoto = document.getElementById('image-1');
+  const thirdPhoto = document.getElementById('image-2');
+  const fourthPhoto = document.getElementById('image-3');
   card.style.transform = 'rotateY(0deg) rotateX(0deg)';
   card.style.transition = 'all 0.5s ease';
   projectTitle.style.transform = 'translateZ(0px)';
@@ -45,10 +59,10 @@ const ProjectsCard = ({ name }) => {
   const projectTitle = document.querySelector('.card-info>h4');
   const seeMoreBtn = document.querySelector('.see-more-btn');
   const projectDescription = document.querySelector('.card-info');
-  const firstPhoto = document.getElementById('first-image');
-  const secondPhoto = document.getElementById('second-image');
-  const thirdPhoto = document.getElementById('third-image');
-  const fourthPhoto = document.getElementById('fourth-image');
+  const firstPhoto = document.getElementById('image-0');
+  const secondPhoto = document.getElementById('image-1');
+  const thirdPhoto = document.getElementById('image-2');
+  const fourthPhoto = document.getElementById('image-3');
 
   card.style.transition = 'all 0.5s ease';
   setTimeout(() => {
@@ -63,23 +77,22 @@ const ProjectsCard = ({ name }) => {
   secondPhoto.style.transform = 'translateZ(150px) rotate(-10deg) ';
 
   thirdPhoto.style.transform = 'translateZ(100px) rotate(-15deg) ';
-
   fourthPhoto.style.transform = 'translateZ(50px)  rotate(-20deg)';
  };
  //moving animation
+
  const animateProjectCard = () => {
   let carouselContainer = document.querySelector('.projects-carousel-container');
   const card = document.querySelector('.project-card');
 
   carouselContainer.addEventListener('mousemove', (e) => {
-   let xAxis = (carouselContainer.getBoundingClientRect().width / 1 - e.pageX) / 25;
-   let yAxis = (carouselContainer.getBoundingClientRect().height / 2 - e.pageY) / 15;
+   let xAxis = (carouselContainer.getBoundingClientRect().width / 1 - e.pageX) / -20;
+   let yAxis = (carouselContainer.getBoundingClientRect().height / 2 - e.pageY) / 10;
 
    card.style.transform = `rotateY(${xAxis}deg) rotateX(${yAxis}deg)`;
   });
   carouselContainer.addEventListener('mouseenter', () => {
    addHoverEffect();
-   clickOnCardImages();
   });
   carouselContainer.addEventListener('mouseleave', (e) => {
    removeHoverEffect();
@@ -91,36 +104,19 @@ const ProjectsCard = ({ name }) => {
 
  return (
   <ProjectCarousel className='projects-carousel-container'>
-   <ProjectCard className='project-card'>
+   <ProjectCard id='project-card' className='project-card '>
     <Header className='card-header'>
-     <Photo
-      id='first-image'
-      src='https://images.unsplash.com/photo-1552980870-89c64b079e08?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=968&q=80'
-     />
-     <Photo
-      id='second-image'
-      src='https://images.unsplash.com/photo-1552980870-89c64b079e08?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=968&q=80'
-     />
-     <Photo
-      id='third-image'
-      src='https://images.unsplash.com/photo-1552980870-89c64b079e08?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=968&q=80'
-     />
-     <Photo
-      id='fourth-image'
-      src='https://images.unsplash.com/photo-1552980870-89c64b079e08?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=968&q=80'
-     />
+     {ProjectsData[index].pictures.map((picture, index) => {
+      return <Photo id={`image-${index}`} src={picture} />;
+     })}
     </Header>
     <Info className='card-info'>
-     <h4>Title</h4>
-     <p>
-      Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quisquam nesciunt cum perspiciatis quaerat recusandae ad corrupti
-      vel tenetur! Veritatis incidunt ad explicabo officia expedita officiis sequi eos iste? Deserunt, repellat sint voluptatum
-      esse accusantium vitae cum nisi amet blanditiis incidunt!
-     </p>
+     <h4>{ProjectsData[index].name}</h4>
+     <p>{ProjectsData[index].paragraphCard}</p>
     </Info>
     <SeeMoreBtn className='see-more-btn'> See more</SeeMoreBtn>
-    <FaAngleRight className='right-arrow' />
-    <FaAngleLeft className='left-arrow' />
+    <FaAngleRight className='right-arrow' onClick={nextProject} />
+    <FaAngleLeft className='left-arrow' onClick={prevProject} />
    </ProjectCard>
   </ProjectCarousel>
  );
@@ -138,18 +134,35 @@ const ProjectCarousel = styled.div`
  justify-content: center;
  align-items: center;
  perspective: 1000px;
- background: lime;
+ /* background: green; */
+ &.rotate {
+  animation: scaledCard 1s ease;
+  @keyframes scaledCard {
+   0% {
+    transform: scale(1);
+   }
+   10% {
+    transform: scale(0.6) rotateX(180deg);
+   }
+   80% {
+    transform: scale(1.2);
+   }
+   100% {
+    transform: scale(1);
+   }
+  }
+ }
 
- @media screen and (max-width: 1000px) {
+ @media screen and (max-width: 1100px) {
   width: 100%;
-  top: 30rem;
+  margin: 5rem auto;
  }
 `;
 const ProjectCard = styled.div`
  min-height: 60vh;
  background: #e9e9e9;
- /* -webkit-transform-style: preserve-3d;
-  -moz-transform-style: preserve-3d; */
+ -webkit-transform-style: preserve-3d;
+ -moz-transform-style: preserve-3d;
  transform-style: preserve-3d;
  .left-arrow,
  .right-arrow {
@@ -201,16 +214,16 @@ const Photo = styled.img`
  border-radius: 5px;
  transition: all 1s ease-out;
  position: absolute;
- #first-image {
+ #image-0 {
   z-index: 4;
  }
- #second-image {
+ #image-1 {
   z-index: 3;
  }
- #third-image {
+ #image-2 {
   z-index: 2;
  }
- #fourth-image {
+ #image-3 {
   z-index: 1;
  }
 `;

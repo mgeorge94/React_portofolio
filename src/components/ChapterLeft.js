@@ -62,6 +62,7 @@ const ChapterLeft = ({ name, paragraph, image, bg, top }) => {
 };
 export const ChapterContainer = styled.div`
  clip-path: polygon(0 0, 100% calc(6vw), 100% calc(100% - 6vw), 0% 100%);
+
  background-attachment: fixed;
  min-height: 100vh;
  transition: transform 0.4s ease-in-out;
@@ -126,6 +127,9 @@ export const TextContainer = styled.aside`
  }
  @media screen and (max-width: 500px) {
   padding: 2rem;
+  h2 {
+   font-size: 6rem;
+  }
  }
 `;
 

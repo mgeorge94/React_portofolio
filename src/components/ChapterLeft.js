@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import Typewriter from 'typewriter-effect';
 import ProjectsCard from './ProjectsCard';
 // intersection observer
-const ChapterLeft = ({ name, paragraph, image, bg, top }) => {
+const ChapterLeft = ({ id, name, paragraph, image, bg, top }) => {
  let [typing, setTyping] = useState(false);
 
  const setTypingTRUE = () => {
@@ -15,7 +15,7 @@ const ChapterLeft = ({ name, paragraph, image, bg, top }) => {
  };
 
  return (
-  <ChapterContainer onMouseEnter={setTypingTRUE} className='chapter chapter-left' top={top} bg={bg}>
+  <ChapterContainer onMouseEnter={setTypingTRUE} className='chapter chapter-left' id={id} top={top} bg={bg}>
    {name !== 'The Experience' ? (
     <TextContainer>
      <h2>{name}</h2>

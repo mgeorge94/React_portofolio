@@ -3,21 +3,28 @@ import HomePage from '../pages/HomePage';
 import ProjectDetailsPage from '../pages/ProjectDetailsPage';
 import NavBar from './NavBar';
 import NavLinks from './NavLinks';
-import { Route } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import styled from 'styled-components';
+import CertificatesPage from '../pages/CertificatesPage';
 
 const NavContainer = ({ isOpen, setIsOpen }) => {
  return (
   <StyledNavContainer isOpen={isOpen}>
    <NavBar isOpen={isOpen} setIsOpen={setIsOpen} />
    <NavLinks isOpen={isOpen} setIsOpen={setIsOpen} />
+   <Switch>
+    <Route path='/certifications'>
+     <CertificatesPage isOpen={isOpen} setIsOpen={setIsOpen} />
+    </Route>
 
-   <Route path='/' exact>
-    <HomePage isOpen={isOpen} setIsOpen={setIsOpen} />
-   </Route>
-   <Route path='/details/:id'>
-    <ProjectDetailsPage isOpen={isOpen} setIsOpen={setIsOpen} />
-   </Route>
+    <Route path='/details/:id'>
+     <ProjectDetailsPage isOpen={isOpen} setIsOpen={setIsOpen} />
+    </Route>
+
+    <Route path='/' exact>
+     <HomePage isOpen={isOpen} setIsOpen={setIsOpen} />
+    </Route>
+   </Switch>
   </StyledNavContainer>
  );
 };

@@ -1,18 +1,45 @@
 import React from 'react';
-
+import { Link } from 'react-router-dom';
+import { Link as LinkS } from 'react-scroll';
 import styled from 'styled-components';
 
 const NavLinks = ({ isOpen, setIsOpen }) => {
  return (
-  <LinksContainer isOpen={isOpen}>
+  <LinksContainer className='container' isOpen={isOpen}>
    <Links isOpen={isOpen}>
     <ul>
-     <li>The Past</li>
-     <li>The Bet</li>
-     <li>The Present</li>
-     <li>The Curriculum</li>
-     <li>The Experience</li>
-     <li>The End</li>
+     <li>
+      <Link
+       onClick={() => {
+        setTimeout(() => {
+         setIsOpen(false);
+        }, 200);
+       }}
+       exact={true}
+       to='/#past'
+      >
+       The Past{' '}
+      </Link>
+     </li>
+     <li>
+      <Link exact={true} to='/#bet'>
+       The Bet{' '}
+      </Link>
+     </li>
+     <li>
+      <Link exact={true} to='/#present'>
+       The Present{' '}
+      </Link>
+     </li>
+     <li>
+      <Link to='/#curriculum'>The Curriculum </Link>
+     </li>
+     <li>
+      <Link to='/#experience'>The Experience </Link>
+     </li>
+     <li>
+      <Link to='/#end'>The End </Link>
+     </li>
     </ul>
    </Links>
   </LinksContainer>

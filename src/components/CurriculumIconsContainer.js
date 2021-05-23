@@ -1,11 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
 import { FaFilePdf, FaFileAlt, FaCertificate, FaBacon } from 'react-icons/fa';
-
+import { Link } from 'react-router-dom';
 const CurriculumIconsContainer = () => {
  return (
   <IconsContainer>
-   <Certificates>
+   <Certificates to='/certifications'>
     <FaFileAlt />
     <FaCertificateStyled />
     <FaBaconStyled />
@@ -42,12 +42,20 @@ const IconsContainer = styled.div`
   font-size: 6rem;
  }
 `;
-const Certificates = styled.div`
+const Certificates = styled(Link)`
  display: inline;
+ font-size: 6rem;
+ margin-bottom: 0;
+ padding-bottom: 0;
+ position: relative;
+ bottom: -4rem;
+ :hover {
+  filter: brightness(150%);
+ }
 
  p {
   position: absolute;
-  bottom: 20%;
+  bottom: 55%;
   left: -3rem;
   font-size: 1.4rem;
   color: white;
@@ -60,9 +68,12 @@ const Cv = styled.div`
  position: relative;
  right: 0;
  top: 0;
+ :hover {
+  filter: brightness(150%);
+ }
  p {
   position: absolute;
-  bottom: 25%;
+  bottom: 40%;
   left: -6px;
   font-size: 1.4rem;
   color: white;
@@ -72,14 +83,14 @@ const FaBaconStyled = styled(FaBacon)`
  position: absolute;
  left: -1rem;
  font-size: 3rem;
- top: 90px;
+ top: 25px;
  filter: brightness(60%);
  transform: rotate(-20deg);
 `;
 const FaCertificateStyled = styled(FaCertificate)`
  position: absolute;
  left: -0.5rem;
- top: 80px;
+ top: 20px;
  font-size: 2.5rem;
 
  filter: brightness(70%);

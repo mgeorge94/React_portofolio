@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
-import NavBar from '../components/NavBar';
+
 import { ChaptersData } from '../components/ChaptersData';
 import ChapterLeft from '../components/ChapterLeft';
 import Header from '../components/Header';
@@ -21,21 +21,18 @@ const HomePage = ({ isOpen, setIsOpen }) => {
    } else {
     chapter.classList.remove('show');
    }
-
-   //   listenForMouseEnter();
   });
  };
 
  return (
   <HomePageContainer
+   className='homepage'
    onScroll={showChapters}
    onClick={() => {
     setIsOpen(false);
    }}
    isOpen={isOpen}
   >
-   {/* <NavBar isOpen={isOpen} setIsOpen={setIsOpen} /> */}
-
    <Header />
    <ChapterLeft
     bg={ChaptersData[0].bg}
@@ -43,6 +40,7 @@ const HomePage = ({ isOpen, setIsOpen }) => {
     paragraph={ChaptersData[0].paragraph}
     image={ChaptersData[0].image}
     top={ChaptersData[0].top}
+    id={ChaptersData[0].id}
    />
    <ChapterRight
     bg={ChaptersData[1].bg}
@@ -50,6 +48,7 @@ const HomePage = ({ isOpen, setIsOpen }) => {
     paragraph={ChaptersData[1].paragraph}
     image={ChaptersData[1].image}
     top={ChaptersData[1].top}
+    id={ChaptersData[1].id}
    />
    <ChapterLeft
     bg={ChaptersData[2].bg}
@@ -57,6 +56,7 @@ const HomePage = ({ isOpen, setIsOpen }) => {
     paragraph={ChaptersData[2].paragraph}
     image={ChaptersData[2].image}
     top={ChaptersData[2].top}
+    id={ChaptersData[2].id}
    />
    <ChapterRight
     bg={ChaptersData[3].bg}
@@ -64,10 +64,17 @@ const HomePage = ({ isOpen, setIsOpen }) => {
     paragraph={ChaptersData[3].paragraph}
     image={ChaptersData[3].image}
     top={ChaptersData[3].top}
+    id={ChaptersData[3].id}
    />
-   <ChapterLeft bg={ChaptersData[4].bg} top={ChaptersData[4].top} name={ChaptersData[4].name} />
+   <ChapterLeft bg={ChaptersData[4].bg} top={ChaptersData[4].top} name={ChaptersData[4].name} id={ChaptersData[4].id} />
 
-   <ChapterRight bg={ChaptersData[5].bg} top={ChaptersData[5].top} name={ChaptersData[5].name} image={ChaptersData[5].image} />
+   <ChapterRight
+    bg={ChaptersData[5].bg}
+    top={ChaptersData[5].top}
+    name={ChaptersData[5].name}
+    image={ChaptersData[5].image}
+    id={ChaptersData[5].id}
+   />
   </HomePageContainer>
  );
 };

@@ -1,36 +1,60 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import styled from 'styled-components';
-
+import ScriptTag from 'react-script-tag';
+import emailHandler from '../email/form-submission-handler.js';
 const Form = () => {
+ const submitBtn = document.querySelector('.submit-btn');
+ const form = document.querySelectorAll('.form');
+ form.forEach((form) => {
+  let isValid = false;
+  submitBtn.addEventListener('click', () => {
+   isValid = form.checkValidity();
+  });
+ });
+ useEffect(() => {
+  const script = document.createElement('script');
+
+  script.src = '../../email/form-submission-handler.js';
+  script.cfasync = false;
+
+  document.body.appendChild(script);
+
+  return () => {
+   document.body.removeChild(script);
+  };
+ }, []);
  return (
-  <FormContainer>
-   <form
-    class='gform'
-    method='post'
-    data-email='george.murgoci.portofolio@gmail.com'
-    action='https://script.google.com/macros/s/AKfycbxJI-J8lq-jQN-pEimXHYSnYaL21zHwKSNYWINCZEpwJkbu6cXS/exec'
-   >
-    <h5>Wanna work together?</h5>
-    <label for='fname'>Tell me your name</label>
-    <input className='form' required type='text' id='name' name='name' placeholder='Ex: Bill Smith' />
-    <label for='fname'>Gimme your email</label>
-    <input className='form' required type='email' id='email' name='email' placeholder='Ex: bill4ubaby@sweetpotato.com' />
+  <>
+   <FormContainer>
+    <form
+     class='gform'
+     method='post'
+     data-email='george.murgoci.portofolio@gmail.com'
+     action='https://script.google.com/macros/s/AKfycbxJI-J8lq-jQN-pEimXHYSnYaL21zHwKSNYWINCZEpwJkbu6cXS/exec'
+    >
+     <h5>Wanna work together?</h5>
+     <label for='fname'>Tell me your name</label>
+     <input className='form' required type='text' id='name' name='name' placeholder='Ex: Bill Smith' />
+     <label for='fname'>Gimme your email</label>
+     <input className='form' required type='email' id='email' name='email' placeholder='Ex: bill4ubaby@sweetpotato.com' />
 
-    <label for='subject'>Tell me about your project</label>
-    <textarea
-     className='form'
-     required
-     id='subject'
-     name='project'
-     placeholder='Ex: I wanna make a social media platform so big that Mark Zuckerberg starts crying.'
-    ></textarea>
+     <label for='subject'>Tell me about your project</label>
+     <textarea
+      className='form'
+      required
+      id='subject'
+      name='project'
+      placeholder='Ex: I wanna make a social media platform so big that Mark Zuckerberg starts crying.'
+     ></textarea>
 
-    <input className='submit-btn' type='submit' value='Submit' />
-    <div className='thankyou_message'>
-     {/* <h2>Perfect! You made the first step towords your dream project. I will get back to you ass soon as possible!</h2> */}
-    </div>
-   </form>
-  </FormContainer>
+     <input className='submit-btn' type='submit' value='Submit' />
+     <div style={{ display: 'none' }} class='thankyou_message'>
+      <h6>Perfect! You made the first step towords your dream project. I will get back to you ass soon as possible!</h6>
+     </div>
+    </form>
+   </FormContainer>
+   <ScriptTag type='text/javascript' data-cfasync='false' src={emailHandler} />
+  </>
  );
 };
 const FormContainer = styled.aside`
@@ -56,6 +80,11 @@ const FormContainer = styled.aside`
   color: var(--accent-color);
   transition: color 1s ease-in-out;
   padding-bottom: 2rem;
+ }
+ h6 {
+  color: black;
+  padding: 1rem;
+  font-size: 1rem;
  }
  label {
   color: black;

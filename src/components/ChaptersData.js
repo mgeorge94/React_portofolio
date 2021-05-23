@@ -11,6 +11,7 @@ export const ChaptersData = [
   image: pastImg,
   bg: '#000000',
   top: '-7vw',
+  id: 'past',
  },
  {
   name: 'The Bet',
@@ -20,6 +21,7 @@ export const ChaptersData = [
   image: betImg,
   bg: '#202332',
   top: '-14rem',
+  id: 'bet',
  },
  {
   name: 'The Present',
@@ -27,6 +29,7 @@ export const ChaptersData = [
   image: presentImg,
   bg: '#242424',
   top: '-21rem',
+  id: 'present',
  },
  {
   name: 'The Curriculum',
@@ -34,16 +37,19 @@ export const ChaptersData = [
   image: curriculumImg,
   bg: '#2c2a2d',
   top: '-28rem',
+  id: 'curriculum',
  },
  {
   name: 'The Experience',
   bg: '#222222',
   top: '-35rem',
+  id: 'experience',
  },
  {
   name: 'The End',
   image: endImg,
   bg: '#373737',
   top: '-42rem',
+  id: 'end',
  },
 ];

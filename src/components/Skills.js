@@ -1,90 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
-import cssLogo from '../images/skills-logos/css.png';
-import gitLogo from '../images/skills-logos/git.png';
-import htmlLogo from '../images/skills-logos/html.png';
-import jQueryLogo from '../images/skills-logos/jQuery.png';
-import jsLogo from '../images/skills-logos/js.png';
-import photoshopLogo from '../images/skills-logos/photoshop.png';
-import sassLogo from '../images/skills-logos/sass.png';
-import reactLogo from '../images/skills-logos/react.png';
-import styledComponentsLogo from '../images/skills-logos/styled-components.png';
-import framerMotionLogo from '../images/skills-logos/framer-motion.png';
+import { logoArr } from './CurriculumData';
+
 const Skills = () => {
- const logoArr = [
-  htmlLogo,
-  cssLogo,
-  jsLogo,
-  jQueryLogo,
-  sassLogo,
-  reactLogo,
-  styledComponentsLogo,
-  framerMotionLogo,
-  gitLogo,
-  photoshopLogo,
-  htmlLogo,
-  cssLogo,
-  jsLogo,
-  jQueryLogo,
-  sassLogo,
-  reactLogo,
-  styledComponentsLogo,
-  framerMotionLogo,
-  gitLogo,
-  photoshopLogo,
-  htmlLogo,
-  cssLogo,
-  jsLogo,
-  jQueryLogo,
-  sassLogo,
-  reactLogo,
-  styledComponentsLogo,
-  framerMotionLogo,
-  gitLogo,
-  photoshopLogo,
-  htmlLogo,
-  cssLogo,
-  jsLogo,
-  jQueryLogo,
-  sassLogo,
-  reactLogo,
-  styledComponentsLogo,
-  framerMotionLogo,
-  gitLogo,
-  photoshopLogo,
-  htmlLogo,
-  cssLogo,
-  jsLogo,
-  jQueryLogo,
-  sassLogo,
-  reactLogo,
-  styledComponentsLogo,
-  framerMotionLogo,
-  gitLogo,
-  photoshopLogo,
-  htmlLogo,
-  cssLogo,
-  jsLogo,
-  jQueryLogo,
-  sassLogo,
-  reactLogo,
-  styledComponentsLogo,
-  framerMotionLogo,
-  gitLogo,
-  photoshopLogo,
- ];
- const skillsText = [
-  'Technologies I worked With',
-  'Technologies I worked With',
-  'Technologies I worked With',
-  'Technologies I worked With',
-  'Technologies I worked With',
-  'Technologies I worked With',
-  'Technologies I worked With',
-  'Technologies I worked With',
-  'Technologies I worked With',
-  'Technologies I worked With',
- ];
  return (
   <>
    <SkillsContainer>
@@ -98,7 +16,7 @@ const Skills = () => {
  );
 };
 
-const SkillsContainer = styled.div`
+export const SkillsContainer = styled.div`
  height: 5rem;
  width: 150%;
  background: rgba(255, 255, 255, 0.361);
@@ -124,7 +42,7 @@ const SkillsContainer = styled.div`
   z-index: 3;
  }
 `;
-const SkillsInnerContainer = styled.div`
+export const SkillsInnerContainer = styled.div`
  height: 100%;
  display: flex;
  align-items: flex-start;

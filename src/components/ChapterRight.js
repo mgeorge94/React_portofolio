@@ -5,7 +5,7 @@ import Typewriter from 'typewriter-effect';
 import Skills from './Skills';
 import CurriculumIconsContainer from './CurriculumIconsContainer';
 import Form from './Form';
-const ChapterRight = ({ name, paragraph, image, bg, top }) => {
+const ChapterRight = ({id, name, paragraph, image, bg, top }) => {
  let [typing, setTyping] = useState(false);
 
  const setTypingTRUE = () => {
@@ -15,7 +15,7 @@ const ChapterRight = ({ name, paragraph, image, bg, top }) => {
   setTyping(!typing);
  };
  return (
-  <ChapterContainerR onMouseEnter={setTypingTRUE} className='chapter chapter-right' top={top} bg={bg}>
+  <ChapterContainerR id={id} onMouseEnter={setTypingTRUE} className='chapter chapter-right' top={top} bg={bg}>
    {name === 'The Curriculum' ? (
     <>
      <TextContainerR>

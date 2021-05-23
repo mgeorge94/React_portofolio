@@ -66,7 +66,7 @@ const ProjectDetailsPage = ({ isOpen, setIsOpen }) => {
   //   </Fragment>
  );
 };
-const ProjectDetailsContainer = styled.body`
+export const ProjectDetailsContainer = styled.body`
  background: #3a3a3a;
  width: 100%;
  flex-grow: 1;

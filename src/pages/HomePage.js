@@ -5,7 +5,7 @@ import { ChaptersData } from '../components/ChaptersData';
 import ChapterLeft from '../components/ChapterLeft';
 import Header from '../components/Header';
 import ChapterRight from '../components/ChapterRight';
-import ProjectsCard from '../components/ProjectsCard';
+
 import Footer from '../components/Footer';
 const HomePage = ({ isOpen, setIsOpen, showChapters }) => {
  // scroll animation

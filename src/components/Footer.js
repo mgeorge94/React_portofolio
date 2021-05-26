@@ -3,7 +3,6 @@ import styled from 'styled-components';
 import logo from '../images/logo/logo.png';
 import { FaGithub, FaLinkedinIn, FaFilePdf } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
-import { Link as Links } from 'react-scroll';
 
 const Footer = () => {
  return (

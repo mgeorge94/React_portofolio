@@ -6,9 +6,9 @@ const Form = () => {
  const submitBtn = document.querySelector('.submit-btn');
  const form = document.querySelectorAll('.form');
  form.forEach((form) => {
-  let isValid = false;
+ 
   submitBtn.addEventListener('click', () => {
-   isValid = form.checkValidity();
+   form.checkValidity();
   });
  });
  useEffect(() => {

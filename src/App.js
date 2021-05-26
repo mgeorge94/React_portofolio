@@ -6,7 +6,7 @@ function App() {
  //  change is open class for opening navigation menu
  let [isOpen, setIsOpen] = useState(false);
  //change accent color on click
- let changeAccentColor = () => {
+ (function changeAccentColor() {
   //array of accent colors
   const accentColors = [
    '#FFD700',
@@ -33,9 +33,9 @@ function App() {
   let randomAccentColor = accentColors[Math.floor(Math.random() * accentColors.length)];
   document.documentElement.style.setProperty('--accent-color', randomAccentColor);
   setTimeout(changeAccentColor, 10000);
- };
+ })();
  return (
-  <AppContainer onMouseEnter={changeAccentColor} isOpen={isOpen} className='App'>
+  <AppContainer isOpen={isOpen} className='App'>
    <NavContainer isOpen={isOpen} setIsOpen={setIsOpen} />
   </AppContainer>
  );

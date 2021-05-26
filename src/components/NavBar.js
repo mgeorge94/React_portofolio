@@ -38,7 +38,7 @@ const Img = styled.img`
  height: 60px;
  width: auto;
  @media screen and (max-width: 500px) {
-  height: 60%;
+  height: 50px;
  }
 `;
 const HamburgerMenu = styled.div`

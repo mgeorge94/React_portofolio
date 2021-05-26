@@ -16,6 +16,7 @@ const Footer = () => {
 
         <FooterLinkR to='/testimonials'> Testimonials</FooterLinkR>
         <a href='/#experience'> Projects</a>
+        <FooterLinkR to='/certifications'> Certificates</FooterLinkR>
        </FooterLinkItems>
       </div>
      </FooterLinksWrapper>

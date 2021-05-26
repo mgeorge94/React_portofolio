@@ -7,8 +7,8 @@ const Skills = () => {
   <>
    <SkillsContainer>
     <SkillsInnerContainer>
-     {logoArr.map((logo) => {
-      return <Logo src={logo}></Logo>;
+     {logoArr.map((logo, index) => {
+      return <Logo key={index} src={logo}></Logo>;
      })}
     </SkillsInnerContainer>
    </SkillsContainer>

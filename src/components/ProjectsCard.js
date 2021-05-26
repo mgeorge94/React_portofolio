@@ -108,7 +108,7 @@ const ProjectsCard = () => {
    <ProjectCard id='project-card' className='project-card '>
     <Header className='card-header'>
      {ProjectsData[index].pictures.map((picture, index) => {
-      return <Photo id={`image-${index}`} src={picture} />;
+      return <Photo key={index} id={`image-${index}`} src={picture} />;
      })}
     </Header>
     <Info className='card-info'>

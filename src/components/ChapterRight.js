@@ -21,7 +21,7 @@ const ChapterRight = ({ id, name, paragraph, image, bg, top }) => {
 
       <Typewriter
        onInit={(typewriter) => {
-        typewriter.changeDelay(50).typeString(`${paragraph}`).start();
+        typewriter.changeDelay(30).typeString(`${paragraph}`).start();
        }}
       />
       <CurriculumIconsContainer />

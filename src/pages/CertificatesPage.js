@@ -28,7 +28,7 @@ const CertificatesPage = ({ isOpen, setIsOpen }) => {
    index++;
 
    logo.style.top = (container.clientHeight - 100) * Math.random() + 'px';
-   console.log(logo.style.top);
+
    logo.style.left = (container.clientWidth - 100) * Math.random() + 'px';
    logo.style.maxWidth = styles.width[index];
 

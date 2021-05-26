@@ -6,7 +6,6 @@ const Form = () => {
  const submitBtn = document.querySelector('.submit-btn');
  const form = document.querySelectorAll('.form');
  form.forEach((form) => {
- 
   submitBtn.addEventListener('click', () => {
    form.checkValidity();
   });
@@ -27,18 +26,18 @@ const Form = () => {
   <>
    <FormContainer>
     <form
-     class='gform'
+     className='gform'
      method='post'
      data-email='george.murgoci.portofolio@gmail.com'
      action='https://script.google.com/macros/s/AKfycbxJI-J8lq-jQN-pEimXHYSnYaL21zHwKSNYWINCZEpwJkbu6cXS/exec'
     >
      <h5>Wanna work together?</h5>
-     <label for='fname'>Tell me your name</label>
+     <label htmlFor='fname'>Tell me your name</label>
      <input className='form' required type='text' id='name' name='name' placeholder='Ex: Bill Smith' />
-     <label for='fname'>Gimme your email</label>
+     <label htmlFor='fname'>Gimme your email</label>
      <input className='form' required type='email' id='email' name='email' placeholder='Ex: bill4ubaby@sweetpotato.com' />
 
-     <label for='subject'>Tell me about your project</label>
+     <label htmlFor='subject'>Tell me about your project</label>
      <textarea
       className='form'
       required
@@ -48,12 +47,12 @@ const Form = () => {
      ></textarea>
 
      <input className='submit-btn' type='submit' value='Submit' />
-     <div style={{ display: 'none' }} class='thankyou_message'>
+     <div style={{ display: 'none' }} className='thankyou_message'>
       <h6>Perfect! You made the first step towords your dream project. I will get back to you ass soon as possible!</h6>
      </div>
     </form>
    </FormContainer>
-   <ScriptTag type='text/javascript' data-cfasync='false' src={emailHandler} />
+   <ScriptTag type='text/javascript' data-cfasync='false' src={`${emailHandler}`} />
   </>
  );
 };

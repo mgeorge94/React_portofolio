@@ -1,11 +1,14 @@
 import React from 'react';
 import styled from 'styled-components';
 import logo from '../images/logo/logo.png';
+import { Link } from 'react-router-dom';
 
 const NavBar = ({ isOpen, setIsOpen }) => {
  return (
   <Nav>
-   <Img src={logo} alt='logo' />
+   <Link to='/'>
+    <Img src={logo} alt='logo' />
+   </Link>
    <HamburgerMenu
     onClick={(event) => {
      event.stopPropagation();
@@ -32,7 +35,7 @@ const Nav = styled.nav`
  left: 0;
 `;
 const Img = styled.img`
- height: 70%;
+ height: 60px;
  width: auto;
  @media screen and (max-width: 500px) {
   height: 60%;

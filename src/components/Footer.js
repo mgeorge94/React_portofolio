@@ -15,7 +15,8 @@ const Footer = () => {
         <FooterLinksTitle>Business</FooterLinksTitle>
 
         <FooterLinkR to='/testimonials'> Testimonials</FooterLinkR>
-        <FooterLinkR to='/certificates'> Certificates</FooterLinkR>
+        <FooterLinkR to='/certifications'> Certificates</FooterLinkR>
+
         <a href='/#experience'>Projects</a>
        </FooterLinkItems>
       </div>
@@ -154,7 +155,7 @@ const LogoWrapper = styled.div`
  padding: 2rem 2rem 0 2rem;
  display: flex;
  justify-content: space-between;
-
+ cursor: default;
  color: white;
 
  @media screen and (max-width: 700px) {
@@ -163,14 +164,14 @@ const LogoWrapper = styled.div`
 
  align-items: center;
 `;
-const LogoLink = styled(Link)`
+const LogoLink = styled.div`
  display: flex;
  justify-content: space-between;
  align-items: center;
  max-width: 1100px;
- /* margin: 40px auto 0 auto; */
+
  text-decoration: none;
- cursor: pointer;
+
  justify-self: start;
  display: flex;
  align-items: center;

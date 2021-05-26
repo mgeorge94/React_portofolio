@@ -40,9 +40,7 @@ const NavLinks = ({ isOpen, setIsOpen, showChapters }) => {
        }, 200);
       }}
      >
-      <Link exact={true} to='/certifications'>
-       Certifications
-      </Link>
+      <Link to='/certifications'>Certifications</Link>
      </li>
      <li
       onClick={() => {

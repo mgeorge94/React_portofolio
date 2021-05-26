@@ -24,7 +24,7 @@ export const ProjectsData = [
  {
   name: 'Portofolio Website',
   paragraphCard:
-   'There is no surprise that my personal portofolio si done by .. well ..me. REDONE ENTIRELY IN REACT this website showcases my best skills in a beautiful manner, using all the technologies I have learned in the last 6 months.',
+   'There is no surprise that my portfolio was done by .. well ..me. REDONE ENTIRELY IN REACT this website beautifully showcases my best skills, using all the technologies I have learned in the last 6 months.',
   url: '/details/portofolio-website',
   link: 'www.murgocigeorge.tk',
   pictures: [PortofolioQuote, PortofolioLevel, PortofolioCertifications, PortofolioProject],
@@ -50,7 +50,7 @@ export const ProjectsData = [
  {
   name: "We'll fix it",
   paragraphCard:
-   "Yeah. I did it. My first ever React Project. It's a real project for a real client that helped me understand how React works",
+   "Yeah. I did it. My first ever React Project. It's a real project for a real client that helped me understand how React works.",
   url: '/details/well-fix-it-project',
   link: 'https://www.wellfixitcluj.ro',
   github: 'https://github.com/mgeorge94/We_ll_fix_it_website',

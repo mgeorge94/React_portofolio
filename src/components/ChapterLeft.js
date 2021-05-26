@@ -21,7 +21,7 @@ const ChapterLeft = ({ id, name, paragraph, image, bg, top }) => {
       <Typewriter
        onInit={(typewriter) => {
         typewriter
-         .changeDelay(40)
+         .changeDelay(30)
          .typeString(`${paragraph}`)
 
          // .deleteChars()

@@ -1,44 +1,67 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Link as LinkS } from 'react-scroll';
+import { Link as LinkScroll } from 'react-scroll';
 import styled from 'styled-components';
 
-const NavLinks = ({ isOpen, setIsOpen }) => {
+const NavLinks = ({ isOpen, setIsOpen, showChapters }) => {
+ const goToChapter = () => {
+  const chapters = document.querySelectorAll('.chapter');
+  chapters.forEach((chapter) => {
+   chapter.classList.add('show');
+  });
+ };
  return (
-  <LinksContainer className='container' isOpen={isOpen}>
+  <LinksContainer className='container' isOpen={isOpen} showChapters={showChapters}>
    <Links isOpen={isOpen}>
     <ul>
-     <li>
-      <Link
-       onClick={() => {
-        setTimeout(() => {
-         setIsOpen(false);
-        }, 200);
-       }}
-       exact={true}
-       to='/#past'
-      >
-       The Past{' '}
+     <li
+      onClick={() => {
+       setTimeout(() => {
+        setIsOpen(false);
+       }, 200);
+      }}
+     >
+      <Link to='/'>Home</Link>
+     </li>
+     <li
+      onClick={() => {
+       goToChapter();
+       setTimeout(() => {
+        setIsOpen(false);
+       }, 200);
+      }}
+     >
+      <a href='/#experience'>Experience</a>
+     </li>
+     <li
+      onClick={() => {
+       setTimeout(() => {
+        setIsOpen(false);
+       }, 200);
+      }}
+     >
+      <Link exact={true} to='/certifications'>
+       Certifications
       </Link>
      </li>
-     <li>
-      <Link exact={true} to='/#bet'>
-       The Bet{' '}
-      </Link>
+     <li
+      onClick={() => {
+       setTimeout(() => {
+        setIsOpen(false);
+       }, 200);
+      }}
+     >
+      <Link to='/testimonials'>Testimonials </Link>
      </li>
-     <li>
-      <Link exact={true} to='/#present'>
-       The Present{' '}
-      </Link>
-     </li>
-     <li>
-      <Link to='/#curriculum'>The Curriculum </Link>
-     </li>
-     <li>
-      <Link to='/#experience'>The Experience </Link>
-     </li>
-     <li>
-      <Link to='/#end'>The End </Link>
+     <li
+      onClick={() => {
+       goToChapter();
+       setTimeout(() => {
+        setIsOpen(false);
+       }, 200);
+      }}
+     >
+      <a href='/#end'>Contact</a>
      </li>
     </ul>
    </Links>

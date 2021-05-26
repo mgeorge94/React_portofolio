@@ -10,21 +10,18 @@ const ChapterLeft = ({ id, name, paragraph, image, bg, top }) => {
  const setTypingTRUE = () => {
   setTyping(true);
  };
- const setTypingFALSE = () => {
-  setTyping(!typing);
- };
 
  return (
-  <ChapterContainer onMouseEnter={setTypingTRUE} className='chapter chapter-left' id={id} top={top} bg={bg}>
+  <ChapterContainer onMouseEnter={setTypingTRUE} className='chapter chapter-left' top={top} bg={bg}>
    {name !== 'The Experience' ? (
     <TextContainer>
-     <h2>{name}</h2>
+     <h2 id={id}>{name}</h2>
 
      {typing && paragraph !== undefined ? (
       <Typewriter
        onInit={(typewriter) => {
         typewriter
-         .changeDelay(50)
+         .changeDelay(40)
          .typeString(`${paragraph}`)
 
          // .deleteChars()
@@ -33,25 +30,12 @@ const ChapterLeft = ({ id, name, paragraph, image, bg, top }) => {
        }}
       />
      ) : null}
-
-     {/* <Typewriter
-    onInit={(typewriter) => {
-     typewriter
-      .typeString(`${paragraph}`)
-      
-
-      .pauseFor(2500)
-      .deleteAll()
-
-      .start();
-    }}
-   /> */}
     </TextContainer>
    ) : (
     <>
      {' '}
      <TextContainer>
-      <h2>{name}</h2>
+      <h2 id={id}>{name}</h2>
      </TextContainer>
      <ProjectsCard name={name} />
     </>
@@ -61,16 +45,16 @@ const ChapterLeft = ({ id, name, paragraph, image, bg, top }) => {
  );
 };
 export const ChapterContainer = styled.div`
- clip-path: polygon(0 0, 100% calc(6vw), 100% calc(100% - 6vw), 0% 100%);
-
  background-attachment: fixed;
  min-height: 100vh;
+ width: 100vw;
  transition: transform 0.4s ease-in-out;
  position: relative;
- top: ${(props) => props.top};
- position: relative;
 
+ position: relative;
+ z-index: ${(props) => props.z};
  background: ${(props) => props.bg};
+
  display: flex;
  justify-content: space-between;
 
@@ -83,6 +67,8 @@ export const ChapterContainer = styled.div`
  }
  &.show {
   transform: translateX(0%);
+  position: relative;
+  min-width: 100%;
  }
 `;
 export const TextContainer = styled.aside`
@@ -124,14 +110,14 @@ export const TextContainer = styled.aside`
 
 export const ImageContainer = styled.div`
  background-image: url(${(props) => props.image});
-
+ background-color: inherit;
  background-size: 40%;
  background-attachment: fixed;
  background-position: right center;
  background-repeat: no-repeat;
+ background-blend-mode: lighten;
 
  width: 40%;
- /* box-shadow: inset 0px 0px 28px 35px ${(props) => props.bg}; */
 
  right: 0;
  @media screen and (max-width: 1100px) {

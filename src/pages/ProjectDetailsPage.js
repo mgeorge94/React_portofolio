@@ -1,17 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { ProjectsData } from '../components/ProjectsData';
+import { FaGithub } from 'react-icons/fa';
+import { motion } from 'framer-motion';
+import { containerAnimation } from '../components/Animation';
 import { useHistory } from 'react-router-dom';
 import { Carousel } from '3d-react-carousal';
-import NavBar from '../components/NavBar';
-import { useInView } from 'react-intersection-observer';
-import { pageAnimation, Fade, TitleAnimation } from '../components/Animation';
-import { motion } from 'framer-motion';
+
+import Footer from '../components/Footer';
 const ProjectDetailsPage = ({ isOpen, setIsOpen }) => {
  //get url location
  const history = useHistory();
  const url = history.location.pathname;
- const [theProjects, setTheProjects] = useState(ProjectsData);
+ const [theProjects] = useState(ProjectsData);
  const [project, setProject] = useState(null);
 
  useEffect(() => {
@@ -27,7 +28,6 @@ const ProjectDetailsPage = ({ isOpen, setIsOpen }) => {
   });
  }
  return (
-  //   <Fragment isOpen={isOpen} variants={pageAnimation} initial='hidden' animate='show'>
   <>
    {project && (
     <ProjectDetailsContainer
@@ -36,7 +36,9 @@ const ProjectDetailsPage = ({ isOpen, setIsOpen }) => {
      }}
      isOpen={isOpen}
     >
-     <h2>{project.name}</h2>
+     <motion.h2 variants={containerAnimation} initial='hidden' animate='show'>
+      {project.name}
+     </motion.h2>
      <p>
       {project.descriptionParagraph}
       <span>
@@ -60,14 +62,20 @@ const ProjectDetailsPage = ({ isOpen, setIsOpen }) => {
        return <li>-{feature}</li>;
       })}
      </ul>
+     <GitIconContainer>
+      <a href={project.github} target='_black'>
+       <FaGithub />
+      </a>
+     </GitIconContainer>
+
+     <Footer />
     </ProjectDetailsContainer>
    )}
   </>
-  //   </Fragment>
  );
 };
-export const ProjectDetailsContainer = styled.body`
- background: #3a3a3a;
+export const ProjectDetailsContainer = styled.section`
+ background: #1c1f2d;
  width: 100%;
  flex-grow: 1;
  overflow-y: auto;
@@ -97,12 +105,18 @@ export const ProjectDetailsContainer = styled.body`
   }
  }
 `;
-const Fragment = styled(motion.div)`
- flex-grow: 1;
- overflow-y: auto;
- overflow-x: hidden;
-`;
+
 const CarouselCountainer = styled.div`
  margin: 5rem auto;
+ min-height: 20rem;
+`;
+const GitIconContainer = styled.a`
+ display: flex;
+ width: 100%;
+ justify-content: flex-end;
+ font-size: 6rem;
+ color: var(--accent-color);
+ margin: 2rem auto;
+ padding-right: 2rem;
 `;
 export default ProjectDetailsPage;

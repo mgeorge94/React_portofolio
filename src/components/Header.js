@@ -1,10 +1,15 @@
 import React from 'react';
 import styled from 'styled-components';
+import { motion } from 'framer-motion';
+import { containerAnimation } from '../components/Animation';
+import img from '../images/header-image/header-bg.gif';
 const Header = () => {
  return (
   <HeaderContainer>
    <TitleContainer>
-    <h1>My name is Murgoci George</h1>
+    <motion.h1 variants={containerAnimation} initial='hidden' animate='show'>
+     My name is Murgoci George
+    </motion.h1>
     <h2>
      and this is my <span>story!</span>
     </h2>
@@ -13,12 +18,18 @@ const Header = () => {
  );
 };
 export const HeaderContainer = styled.header`
- clip-path: polygon(0 0, 100% 0, 100% 100%, 0% calc(100% - 6vw));
  height: 60vh;
  display: block;
- background-color: rgb(40, 43, 40);
+ background-color: #080a0f;
+ background-image: url(${img});
+ background-repeat: no-repeat;
+ background-position: right center;
+ background-blend-mode: lighten;
  min-height: 80vh;
  width: 100vw;
+ @media screen and (max-width: 1350px) {
+  background-image: url('');
+ }
  @media screen and (max-width: 750px) {
   min-height: auto;
   display: flex;
@@ -28,7 +39,7 @@ export const HeaderContainer = styled.header`
  }
 `;
 const TitleContainer = styled.div`
- padding-left: 2rem;
+ padding-left: 7vw;
  position: absolute;
  padding-top: 8rem;
 

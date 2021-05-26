@@ -137,7 +137,7 @@ const ProjectCarousel = styled.div`
  justify-content: center;
  align-items: center;
  perspective: 1000px;
- /* background: green; */
+
  &.rotate {
   animation: scaledCard 1s ease;
   @keyframes scaledCard {
@@ -162,7 +162,7 @@ const ProjectCarousel = styled.div`
  }
 `;
 const ProjectCard = styled.div`
- min-height: 60vh;
+ min-height: 28rem;
  background: #e9e9e9;
  -webkit-transform-style: preserve-3d;
  -moz-transform-style: preserve-3d;

@@ -47,16 +47,17 @@ export const SkillsInnerContainer = styled.div`
  display: flex;
  align-items: flex-start;
  justify-content: center;
+ transform: translateX(-50%);
  animation: endlessLoop 40s linear infinite;
  @keyframes endlessLoop {
   0% {
-   transform: translateX(-100%);
+   transform: translateX(-50%);
   }
   50% {
    transform: translate(0%);
   }
   100% {
-   transform: translateX(-100%);
+   transform: translateX(-50%);
   }
  }
 `;

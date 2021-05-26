@@ -6,13 +6,31 @@ import NavLinks from './NavLinks';
 import { Route, Switch } from 'react-router-dom';
 import styled from 'styled-components';
 import CertificatesPage from '../pages/CertificatesPage';
+import TestimonialPage from '../pages/TestimonialPage';
 
 const NavContainer = ({ isOpen, setIsOpen }) => {
+ const showChapters = () => {
+  const chapters = Array.from(document.querySelectorAll('.chapter'));
+  const triggerBottom = (window.innerHeight / 9) * 6;
+
+  chapters.forEach((chapter) => {
+   const chapterTop = chapter.getBoundingClientRect().top;
+
+   if (chapterTop < triggerBottom) {
+    chapter.classList.add('show');
+   } else {
+    chapter.classList.remove('show');
+   }
+  });
+ };
  return (
   <StyledNavContainer isOpen={isOpen}>
    <NavBar isOpen={isOpen} setIsOpen={setIsOpen} />
-   <NavLinks isOpen={isOpen} setIsOpen={setIsOpen} />
+   <NavLinks showChapters={showChapters} isOpen={isOpen} setIsOpen={setIsOpen} />
    <Switch>
+    <Route path='/testimonials'>
+     <TestimonialPage isOpen={isOpen} setIsOpen={setIsOpen} />
+    </Route>
     <Route path='/certifications'>
      <CertificatesPage isOpen={isOpen} setIsOpen={setIsOpen} />
     </Route>
@@ -22,7 +40,7 @@ const NavContainer = ({ isOpen, setIsOpen }) => {
     </Route>
 
     <Route path='/' exact>
-     <HomePage isOpen={isOpen} setIsOpen={setIsOpen} />
+     <HomePage showChapters={showChapters} isOpen={isOpen} setIsOpen={setIsOpen} />
     </Route>
    </Switch>
   </StyledNavContainer>

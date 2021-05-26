@@ -2,9 +2,9 @@ import React from 'react';
 import styled from 'styled-components';
 import { Carousel } from '3d-react-carousal';
 import { motion } from 'framer-motion';
-import { ProjectDetailsContainer } from './ProjectDetailsPage';
-import { pageAnimation, Fade, TitleAnimation } from '../components/Animation';
+import { containerAnimation } from '../components/Animation';
 import { certificates, logoArrSmall as logoArr } from '../components/CurriculumData';
+import Footer from '../components/Footer';
 
 const CertificatesPage = ({ isOpen, setIsOpen }) => {
  let slides = certificates.map((certificate) => {
@@ -51,16 +51,15 @@ const CertificatesPage = ({ isOpen, setIsOpen }) => {
 
  return (
   <CertificatesContainer
-   variants={pageAnimation}
-   initial='hidden'
-   animate='show'
    isOpen={isOpen}
    onClick={() => {
     setIsOpen(false);
    }}
   >
    <CarouselContainer>
-    <h2>The Certifications</h2>
+    <motion.h2 variants={containerAnimation} initial='hidden' animate='show'>
+     The Certifications
+    </motion.h2>
     <Carousel slides={slides} autoplay={true} interval={5000} />
    </CarouselContainer>
 
@@ -75,11 +74,12 @@ const CertificatesPage = ({ isOpen, setIsOpen }) => {
      })}
     </ul>
    </LogosContainer>
+   <Footer />
   </CertificatesContainer>
  );
 };
 const CertificatesContainer = styled.body`
- background: #3a3a3a;
+ background: #1c1f2d;
  width: 100%;
  flex-grow: 1;
  overflow-y: auto;

@@ -6,23 +6,9 @@ import ChapterLeft from '../components/ChapterLeft';
 import Header from '../components/Header';
 import ChapterRight from '../components/ChapterRight';
 import ProjectsCard from '../components/ProjectsCard';
-const HomePage = ({ isOpen, setIsOpen }) => {
+import Footer from '../components/Footer';
+const HomePage = ({ isOpen, setIsOpen, showChapters }) => {
  // scroll animation
-
- const showChapters = () => {
-  const chapters = Array.from(document.querySelectorAll('.chapter'));
-  const triggerBottom = (window.innerHeight / 9) * 6;
-
-  chapters.forEach((chapter) => {
-   const chapterTop = chapter.getBoundingClientRect().top;
-
-   if (chapterTop < triggerBottom) {
-    chapter.classList.add('show');
-   } else {
-    chapter.classList.remove('show');
-   }
-  });
- };
 
  return (
   <HomePageContainer
@@ -75,12 +61,13 @@ const HomePage = ({ isOpen, setIsOpen }) => {
     image={ChaptersData[5].image}
     id={ChaptersData[5].id}
    />
+   <Footer />
   </HomePageContainer>
  );
 };
 const HomePageContainer = styled.section`
  width: 100%;
- background: #2a2a2b;
+ background: #858585;
  transition: transform var(--transition-length) ease-in-out;
  color: white;
  transform: ${({ isOpen }) => (isOpen ? 'rotateY(25deg) translateX(-350px)' : 'rotateY(0deg) translateX(0)')};

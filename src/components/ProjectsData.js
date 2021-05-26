@@ -22,12 +22,38 @@ import MusicareGrid from '../images/project-photos/Musicare-project/grid.jpg';
 
 export const ProjectsData = [
  {
+  name: 'Portofolio Website',
+  paragraphCard:
+   'There is no surprise that my personal portofolio si done by .. well ..me. REDONE ENTIRELY IN REACT this website showcases my best skills in a beautiful manner, using all the technologies I have learned in the last 6 months.',
+  url: '/details/portofolio-website',
+  link: 'www.murgocigeorge.tk',
+  pictures: [PortofolioQuote, PortofolioLevel, PortofolioCertifications, PortofolioProject],
+  github: 'https://github.com/mgeorge94/React_portofolio',
+
+  descriptionParagraph:
+   ' I decided to leave the old portofolio photos in here so you can have  a comparison point for the design (mostly). The project was redone because, even though 2 months ago , when I made it , I thought it was awesome, as time passed by and I progressed, I felt like there are a lot more things I can do with it. On the topic of used technologies, Are worth mentioning, in order of importance, React, Javascript, Styled components, Framer Motion, Photoshop, and a few  npm packages like typewriter-effect, react-icons, 3d-react-carousal. ',
+  p0: ' The pictures above represent what I think are the best aesthetic choices I made on v1 of this  website  but not the hardest things to do. In other words, those are the thing I flex with to my mom.',
+  subtitle1: 'Challenges',
+  p1: 'If the first time around I was stuck at teh auto-typing effect, now it was mostly about the nav links. Let me explain. The navLinks buttons let the user go in 2 places: 1. to another page and  2. to the same page at the certain point/to another page at a certain pont. ',
+  subtitle2: 'How i Overcome them',
+  p2: 'Well.. anchor tags to the resque.  I used anchor tags for every nav link button that needed to go to the homepage at a certain point. This works well with or without being on the homepage in the first place. Every other button is a React Router Link',
+
+  bestFeatures: [
+   'Modern design that fully translates  my personality ',
+   'Accent color that dynamically changes on every click ',
+   'Beautiful 3d animation  on hover for the project cards in  the experience chapter',
+   'auto typing effect ',
+   "The amazing parallax effect that even now, then i know how its done, makes me go 'wow'",
+   'working contact form',
+  ],
+ },
+ {
   name: "We'll fix it",
   paragraphCard:
    "Yeah. I did it. My first ever React Project. It's a real project for a real client that helped me understand how React works",
   url: '/details/well-fix-it-project',
   link: 'https://www.wellfixitcluj.ro',
-
+  github: 'https://github.com/mgeorge94/We_ll_fix_it_website',
   pictures: [wellFixItHeader, wellFixItReview, wellFixItFaq, wellFixItContact],
 
   descriptionParagraph: `I first want to say that I adore React. The project was like a path to enlightenment for me because I had the opportunity to shift the way I thought about a project. Also I used some fun stuff that I will tel you about in a minute. Check out the project  `,
@@ -47,12 +73,12 @@ export const ProjectsData = [
   url: '/details/chillbox-project',
   link: 'https://www.chillbox.tk',
   pictures: [ChillBoxNavMenu, ChillBoxCover, ChillBoxGenres, ChillBoxMovieDetails],
-
-  descriptionParagraph: `ChillBox is supposed to be (for me at least) my way of working for the first time with a complex api. Even though it's be probably  illegal in about 1459 countries because it's based on a movie torrent api, I think it's a fun way of practicing. You can check out the project <a href="https://chillbox.tk/" target='_blank' class ='link'>here</a> `,
+  github: 'https://github.com/mgeorge94/ChillBox',
+  descriptionParagraph: `ChillBox is supposed to be (for me at least) my way of working for the first time with a complex api. Even though it's be probably  illegal in about 1459 countries because it's based on a movie torrent api, I think it's a fun way of practicing. You can check out the project  `,
   p0: " This project was soooo fun to make. Besides the fact that I am a cinema lover since I was a lil' boy, the api make's it really easy to work with complex data. I am glad I didn't flex for nothing when I was working with hard coded data (the Musicare Project for example)",
-  p1: 'Challenges',
-  subtitle1:
-   "It isn't much to say here. I had some problems regarding speed and some difficult design choices but I think It turned out pretty good. The biggest challenge was the magnet link, because at first I couldn't find a player that supported magnet link playing. And I thought there is no point in making it from scratch because... when will I ever need a magnet link player like... ever.",
+  subtitle1: 'Challenges',
+  p1: "It isn't much to say here. I had some problems regarding speed and some difficult design choices but I think It turned out pretty good. The biggest challenge was the magnet link, because at first I couldn't find a player that supported magnet link playing. And I thought there is no point in making it from scratch because... when will I ever need a magnet link player like... ever.",
+
   subtitle2: 'Things I did to make my life easier',
   p2: 'I found a torrent magnet link player on github and, after a little tinkering,  It worked like a charm. Also, after I had the filtering logic down, I discovered that the API I was using had a filtering functionality build in. So I went for that.   By the way. I used the YTS api in case you were wondering ..',
 
@@ -63,31 +89,6 @@ export const ProjectsData = [
    'Movie suggestions by pressing the chance btn ',
    'Chance to watch a movie trailer before you embark on watching the full movie.',
    'Imdb ratings',
-  ],
- },
- {
-  name: 'Portofolio Website',
-  paragraphCard:
-   'There is no surprise that my personal portofolio si done by .. well ..me. I included this here because I stumbled upon some interesting problems along the way and  the way I managed to fix the is... at least interesting.',
-  url: '/details/portofolio-website',
-  link: 'www.murgocigeorge.tk',
-  pictures: [PortofolioQuote, PortofolioLevel, PortofolioCertifications, PortofolioProject],
-
-  descriptionParagraph:
-   "When I started working on this website I had no idea what I wanted to do. Or rather, I had to many ideas and didn't know which one to choose. After a brainstorming session a arrived at the conclusion that this website should reflect my personality and the visual effects, text, little jokes, even the Mafia:The city of lost heaven reference (Kudos to you  if you got it ), all reflect my personality.",
-  p0: ' The pictures above reflect what I think are the best aesthetic choices I made on this website  but not the hardest things to do.In other words, those are the thing I flex with to my mom.',
-  subtitle1: 'Challenges',
-  p1: "Oh... the auto-typing effect. I wanted to implement this in a project for a while but it was like it wasn't making sense form a logical perspective. But here, i embraced the storytelling  way of presenting my message and i think the auto-typing effect   fits right in.",
-  subtitle2: 'How i Overcome them',
-  p2: 'After trying to set up a trigger point  for the function that types the text to run, and failing  miserably, I started thinking about mouse event listeners for each card. At the time of writing this, I probably switched between mousemoove, mouseenter and mouseover more than 10 times... Probably in a few years I will laugh at the problems i encountered now but for 4 months of experience, i think is pretty good.  ',
-
-  bestFeatures: [
-   'Modern design that fully translates  my personality ',
-   'Accent color that dynamically changes on every click ',
-   'Beautiful 3d animation  on hover for the project cards in  the experience chapter',
-   'auto typing effect with screen freeze and  black and white transition for added  nostalgia effect and emphasising the storytelling mood ',
-   "The amazing parallax effect that even now, then i know how its done, makes me go 'wow'",
-   'working contact form',
   ],
  },
 
@@ -138,6 +139,7 @@ export const ProjectsData = [
   url: '/details/musicare-project',
   link: 'https://www.musicare.ml',
   pictures: [MusicarePanels, MusicareLanding, MusicareAbout, MusicareGrid],
+  github: 'https://github.com/mgeorge94/Musicare',
 
   descriptionParagraph:
    "I started this project in order to make the transition,  from being a full time flute player to an ambitious programmer, smoother. And also I thought it was an unique,  long-awaited and needed idea-implementation  for my country. The website it's made entirely by me,   with Html, Css and Javascript. No Wordpress, no React, nada.  You can check it out ",

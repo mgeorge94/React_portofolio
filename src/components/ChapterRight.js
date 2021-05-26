@@ -5,21 +5,19 @@ import Typewriter from 'typewriter-effect';
 import Skills from './Skills';
 import CurriculumIconsContainer from './CurriculumIconsContainer';
 import Form from './Form';
-const ChapterRight = ({id, name, paragraph, image, bg, top }) => {
+const ChapterRight = ({ id, name, paragraph, image, bg, top }) => {
  let [typing, setTyping] = useState(false);
 
  const setTypingTRUE = () => {
   setTyping(true);
  };
- const setTypingFALSE = () => {
-  setTyping(!typing);
- };
+
  return (
-  <ChapterContainerR id={id} onMouseEnter={setTypingTRUE} className='chapter chapter-right' top={top} bg={bg}>
+  <ChapterContainerR onMouseEnter={setTypingTRUE} className='chapter chapter-right' top={top} bg={bg}>
    {name === 'The Curriculum' ? (
     <>
      <TextContainerR>
-      <h2>{name}</h2>
+      <h2 id={id}>{name}</h2>
 
       <Typewriter
        onInit={(typewriter) => {
@@ -33,13 +31,13 @@ const ChapterRight = ({id, name, paragraph, image, bg, top }) => {
    ) : name === 'The End' ? (
     <>
      <TextContainerR>
-      <h2>{name}</h2>
+      <h2 id={id}>{name}</h2>
      </TextContainerR>
      <Form />
     </>
    ) : (
     <TextContainerR>
-     <h2>{name}</h2>
+     <h2 id={id}>{name}</h2>
      {typing && paragraph !== undefined ? (
       <Typewriter
        onInit={(typewriter) => {
@@ -62,9 +60,14 @@ const ChapterRight = ({id, name, paragraph, image, bg, top }) => {
 const ChapterContainerR = styled(ChapterContainer)`
  &.chapter-right {
   transform: translateX(400%);
+  z-index: ${(props) => props.z};
+  position: relative;
+
   background: ${(props) => props.bg};
   overflow: hidden;
+  min-width: 100vw;
  }
+
  &.show {
   transform: translateX(0%) scaleX(-1);
  }
@@ -74,10 +77,7 @@ const TextContainerR = styled(TextContainer)`
  display: flex;
  flex-direction: column;
  align-items: flex-end;
- /* text-align: right; */
- @media screen and (max-width: 1100px) {
-  text-align: left;
- }
+
  @media screen and (max-width: 500px) {
   padding: 2rem;
   h2 {
@@ -89,6 +89,9 @@ const ImageContainerR = styled(ImageContainer)`
  transform: scaleX(-1);
 
  background-image: ${({ image }) => (image ? `url(({image}))` : `url("")`)};
+ background-color: inherit;
+ background-blend-mode: lighten;
+
  &.end {
   position: absolute;
   left: 0rem;
@@ -97,7 +100,12 @@ const ImageContainerR = styled(ImageContainer)`
   z-index: -2;
   height: 100%;
   width: 80rem;
+  background-color: inherit;
+
   background-image: ${({ image }) => `url(({image}))`};
+  background-color: inherit;
+  background-blend-mode: lighten;
+
   background-size: 60vw;
   background-position: bottom right;
   @media screen and (max-width: 1100px) {

@@ -89,8 +89,10 @@ const ImageContainerR = styled(ImageContainer)`
  transform: scaleX(-1);
 
  background-image: ${({ image }) => (image ? `url(({image}))` : `url("")`)};
+
  background-color: inherit;
  background-blend-mode: lighten;
+ overflow: hidden;
 
  &.end {
   position: absolute;
@@ -106,7 +108,7 @@ const ImageContainerR = styled(ImageContainer)`
   background-color: inherit;
   background-blend-mode: lighten;
 
-  background-size: 60vw;
+  background-size: 40vw;
   background-position: bottom right;
   @media screen and (max-width: 1100px) {
    display: none;

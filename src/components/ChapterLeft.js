@@ -47,7 +47,7 @@ const ChapterLeft = ({ id, name, paragraph, image, bg, top }) => {
 export const ChapterContainer = styled.div`
  background-attachment: fixed;
  min-height: 100vh;
- width: 100vw;
+ max-width: 100vw;
  transition: transform 0.4s ease-in-out;
  position: relative;
 
@@ -111,21 +111,20 @@ export const TextContainer = styled.aside`
 export const ImageContainer = styled.div`
  background-image: url(${(props) => props.image});
  background-color: inherit;
- background-size: 40%;
+ background-size: 40vw;
  background-attachment: fixed;
  background-position: right center;
  background-repeat: no-repeat;
  background-blend-mode: lighten;
 
- width: 40%;
-
- right: 0;
+ width: 40vw;
+ position: relative;
+ right: 3rem;
  @media screen and (max-width: 1100px) {
-  width: 100%;
+  width: 100vw;
   height: 20rem;
   bottom: 0;
-  background-size: 100%;
-  /* background: lime; */
+  background-size: 100vw;
  }
 `;
 

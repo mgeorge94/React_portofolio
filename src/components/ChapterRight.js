@@ -41,7 +41,7 @@ const ChapterRight = ({ id, name, paragraph, image, bg, top }) => {
      {typing && paragraph !== undefined ? (
       <Typewriter
        onInit={(typewriter) => {
-        typewriter.changeDelay(50).typeString(`${paragraph}`).start();
+        typewriter.changeDelay(30).typeString(`${paragraph}`).start();
        }}
       />
      ) : null}
@@ -96,16 +96,17 @@ const ImageContainerR = styled(ImageContainer)`
 
  &.end {
   position: absolute;
-  left: 0rem;
+  left: 2rem;
   bottom: 0rem;
   top: 0;
   z-index: -2;
   height: 100%;
-  width: 80rem;
+  width: 80vw;
   background-color: inherit;
 
   background-image: ${({ image }) => `url(({image}))`};
   background-color: inherit;
+
   background-blend-mode: lighten;
 
   background-size: 40vw;

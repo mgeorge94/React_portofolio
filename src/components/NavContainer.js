@@ -47,9 +47,9 @@ const NavContainer = ({ isOpen, setIsOpen }) => {
  );
 };
 const StyledNavContainer = styled.div`
- perspective: 900px;
+ perspective: 1000px;
  height: 100vh;
-
+ transform-style: preserve-3d;
  display: flex;
  flex-direction: column;
  overflow: hidden;

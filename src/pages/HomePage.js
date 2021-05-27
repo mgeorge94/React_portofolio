@@ -78,5 +78,6 @@ const HomePageContainer = styled.section`
  flex-grow: 1;
  overflow-y: auto;
  overflow-x: hidden;
+ transform-style: preserve-3d;
 `;
 export default HomePage;

@@ -217,6 +217,7 @@ const Photo = styled.img`
  border-radius: 5px;
  transition: all 1s ease-out;
  position: absolute;
+
  #image-0 {
   z-index: 4;
  }
@@ -259,9 +260,7 @@ const SeeMoreBtn = styled.button`
  transition: background-color 1s ease-out;
  color: rgb(31, 31, 31);
  border: 0;
- transform-style: preserve-3d;
- -webkit-transform-style: preserve-3d;
- -moz-transform-style: preserve-3d;
+
  border-radius: 5px;
  transition: all 1s ease-out;
  :hover,

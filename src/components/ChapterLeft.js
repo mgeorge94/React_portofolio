@@ -24,8 +24,6 @@ const ChapterLeft = ({ id, name, paragraph, image, bg, top }) => {
          .changeDelay(30)
          .typeString(`${paragraph}`)
 
-         // .deleteChars()
-
          .start();
        }}
       />
@@ -51,7 +49,6 @@ export const ChapterContainer = styled.div`
  transition: transform 0.4s ease-in-out;
  position: relative;
 
- position: relative;
  z-index: ${(props) => props.z};
  background: ${(props) => props.bg};
 
@@ -121,10 +118,10 @@ export const ImageContainer = styled.div`
  position: relative;
  right: 3rem;
  @media screen and (max-width: 1100px) {
-  width: 100vw;
+  width: 90vw;
   height: 20rem;
   bottom: 0;
-  background-size: 100vw;
+  background-size: 90vw;
  }
 `;
 

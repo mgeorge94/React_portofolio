@@ -14,6 +14,10 @@ import nodeJSLogo from '../images/skills-logos/nodejs.png';
 import expressJSLogo from '../images/skills-logos/expressJS.png';
 import postmanLogo from '../images/skills-logos/postman.png';
 import insomniaLogo from '../images/skills-logos/insomnia.png';
+import angularLogo from '../images/skills-logos/angular.png';
+import bootstrapLogo from '../images/skills-logos/bootstrap.png';
+import npmLogo from '../images/skills-logos/npm.png';
+import webpackLogo from '../images/skills-logos/webpack.png';
 //diplomas
 import htmlPic from '../images/certifications/html-diploma.jpg';
 import htmlCssPic from '../images/certifications/html-css-git-diploma.jpg';
@@ -29,11 +33,15 @@ export const logoArrSmall = [
  jQueryLogo,
  sassLogo,
  reactLogo,
+ angularLogo,
  styledComponentsLogo,
+ bootstrapLogo,
  framerMotionLogo,
  gitLogo,
+ npmLogo,
  nodeJSLogo,
  expressJSLogo,
+ webpackLogo,
  postmanLogo,
  insomniaLogo,
  photoshopLogo,

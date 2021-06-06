@@ -107,7 +107,7 @@ const CarouselContainer = styled.div`
  }
 `;
 const LogosContainer = styled.section`
- height: 50vh;
+ height: 80vh;
 
  width: 80%;
  margin: 5rem auto;

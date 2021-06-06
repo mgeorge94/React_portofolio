@@ -25,7 +25,7 @@ export const ChaptersData = [
  },
  {
   name: 'The Present',
-  paragraph: ` "Anyway,  I begun my journey in conquering Web Development, each and every day taking small steps to become the greatest front end dev (of my family)"`,
+  paragraph: ` "Anyway,  I begun my journey in conquering Web Development, each and every day taking small steps to become the greatest front end dev (of my family). Currently I am working as a backend web-developer for StrongBytes"`,
   image: presentImg,
   bg: '#242424',
   top: '-21rem',

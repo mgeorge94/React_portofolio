@@ -48,14 +48,14 @@ const Certificates = styled(Link)`
  margin-bottom: 0;
  padding-bottom: 0;
  position: relative;
- bottom: -4rem;
+ bottom: -5.5rem;
  :hover {
   filter: brightness(150%);
  }
 
  p {
   position: absolute;
-  bottom: 55%;
+  bottom: 63%;
   left: -3rem;
   font-size: 1.4rem;
   color: white;

@@ -16,8 +16,15 @@ export const ChaptersData = [
  {
   name: 'The Bet',
   paragraph: `"A bet from my very best friend, an IT guy who I was teaching flute on the side...
-       - I bet  you the next round I can learn to play the flute faster than you can learn programming
-       P.S. He lost! "`,
+       - I bet  you the next round I can learn to play the flute faster than you can learn programming.
+
+
+
+       P.S.
+       
+       
+       
+       He lost! "`,
   image: betImg,
   bg: ' #13151e',
   top: '-14rem',

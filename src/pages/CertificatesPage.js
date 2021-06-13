@@ -12,7 +12,7 @@ const CertificatesPage = ({ isOpen, setIsOpen }) => {
  });
  //display logos in random order
  const styles = {
-  width: ['1rem', '2rem', '14rem', '6rem', '3rem', '10rem', '8rem'],
+  width: ['1rem', '2rem', '14rem', '6rem', '3rem', '10rem', '5rem', '8rem'],
  };
 
  //randomise
@@ -30,7 +30,8 @@ const CertificatesPage = ({ isOpen, setIsOpen }) => {
    logo.style.top = (container.clientHeight - 100) * Math.random() + 'px';
 
    logo.style.left = (container.clientWidth - 100) * Math.random() + 'px';
-   logo.style.maxWidth = styles.width[index];
+
+   logo.style.width = styles.width[index];
 
    for (let key in styles) {
     if (index > key.length) index = 0;

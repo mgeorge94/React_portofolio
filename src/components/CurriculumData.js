@@ -26,6 +26,7 @@ import jsPic from '../images/certifications/js-diploma.jpg';
 import reactPic from '../images/certifications/react-diploma.jpg';
 import reactFluxPic from '../images/certifications/react-flux.jpg';
 import reactReduxPic from '../images/certifications/react-redux.jpg';
+import expressPic from '../images/certifications/express.png';
 export const logoArrSmall = [
  htmlLogo,
  cssLogo,
@@ -48,4 +49,4 @@ export const logoArrSmall = [
 ];
 export const logoArr = [...logoArrSmall, ...logoArrSmall, ...logoArrSmall, ...logoArrSmall];
 
-export const certificates = [htmlPic, htmlCssPic, jQueryPic, jsPic, reactPic, reactFluxPic, reactReduxPic];
+export const certificates = [htmlPic, htmlCssPic, jQueryPic, jsPic, reactPic, reactFluxPic, reactReduxPic, expressPic];

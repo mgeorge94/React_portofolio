@@ -3,9 +3,11 @@ import styled from 'styled-components';
 import { motion } from 'framer-motion';
 import { containerAnimation } from '../components/Animation';
 import img from '../images/header-image/header-bg.gif';
+import Particles from './Particles.js';
 const Header = () => {
  return (
   <HeaderContainer>
+   <Particles />
    <TitleContainer>
     <motion.h1 variants={containerAnimation} initial='hidden' animate='show'>
      My name is Murgoci George
@@ -21,12 +23,13 @@ export const HeaderContainer = styled.header`
  height: 60vh;
  display: block;
  background-color: #080a0f;
- background-image: url(${img});
+ /* background-image: url(${img});
  background-repeat: no-repeat;
  background-position: right center;
- background-blend-mode: lighten;
+ background-blend-mode: lighten; */
  min-height: 80vh;
  width: 100vw;
+ overflow: hidden;
  @media screen and (max-width: 1350px) {
   background-image: url('');
  }
@@ -42,9 +45,12 @@ const TitleContainer = styled.div`
  padding-left: 7vw;
  position: absolute;
  padding-top: 8rem;
-
+ z-index: 9;
  display: flex;
  flex-direction: column;
+ pointer-events: none;
+ top: 0;
+ left: 0;
  h1,
  h2 {
   font-family: 'Six Caps';
